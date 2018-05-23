@@ -5,6 +5,7 @@ html, body{
     margin: 0;
     font-family: CantarellCustom, serif;
     height: 100%;
+    background-color: #f6f6f6;
 }
 
 .GreyBanner{
@@ -52,6 +53,10 @@ html, body{
     box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
 }
 
+.Svg{
+    width: 35px;
+}
+
 .Description{
     margin: 3em auto 0 auto;
     width: 1000px;
@@ -65,16 +70,37 @@ html, body{
 .TextDescription{
     width: 80%;
     padding: 12% 0 0 10%;
+    color: #5A5A5A;
 }
 
 .Button {
     background-color: #2034C5;
+    -webkit-box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.75);
+    width: 257px;
+    height: 70px;
+    margin-top: 6em;
+    color: white;
+}
+
+.Buttons{
+    width: 1000px;
+    margin: 0 auto;
 }
 
 #DownloadCv{
-
+    float: left;
+    display: inline-block;
 }
 
 #ContactMe{
+    float: right;
+    display: inline-block;
+}
 
+.TextButton{
+    margin: 1.3em auto 0 auto;
+    text-align: center;
+    width: 8em;
 }
