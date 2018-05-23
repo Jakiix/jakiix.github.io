@@ -1,0 +1,80 @@
+@font-face{
+    font-family: CantarellCustom; src: url('font/Cantarell-Bold.ttf'); }
+
+html, body{
+    margin: 0;
+    font-family: CantarellCustom, serif;
+    height: 100%;
+}
+
+.GreyBanner{
+    background-color: #62625c;
+    height: 13em;
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
+}
+
+.DarkGreyBanner{
+    background-color: #36362c;
+    height: 1em;
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
+}
+
+.Title{
+    color: white;
+    margin-top: 2em;
+}
+
+#Name{
+    font-size : 25px;
+    margin: 0 auto;
+    width: 10em;
+}
+
+#Domain{
+    font-size : 20px;
+    margin: 0 auto;
+    width: 10em;
+}
+
+.Circle{
+    background-color: #E7E7E7;
+    width: 10em;
+    height: 10em;
+    margin: -3% auto 0 auto;
+    position: relative;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.75);
+}
+
+.Description{
+    margin: 3em auto 0 auto;
+    width: 1000px;
+    height: 270px;
+    background-color: #E7E7E7;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.75);
+}
+
+.TextDescription{
+    width: 80%;
+    padding: 12% 0 0 10%;
+}
+
+.Button {
+    background-color: #2034C5;
+}
+
+#DownloadCv{
+
+}
+
+#ContactMe{
+
+}
