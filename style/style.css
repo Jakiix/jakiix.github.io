@@ -61,6 +61,7 @@ html, body{
 }
 
 .Svg{
+<<<<<<< HEAD
     border-radius: 50%;
     width: 50px;
     display: inline-block;
@@ -76,6 +77,9 @@ html, body{
 
 .Svg:hover, .Svg:focus, .Svg:active {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+=======
+    width: 50px;
+>>>>>>> 45d6bbf5a6bd8b718f1ea532b27d28847166fd4d
 }
 
 .Description{
@@ -97,10 +101,17 @@ html, body{
 
 .Button{
     background-color: #2034C5;
+<<<<<<< HEAD
+=======
+    -webkit-box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 3px 0 rgba(0,0,0,0.75);
+>>>>>>> 45d6bbf5a6bd8b718f1ea532b27d28847166fd4d
     width: 257px;
     height: 70px;
     margin-top: 6em;
     color: white;
+<<<<<<< HEAD
     vertical-align: middle;
     overflow: hidden;
     transition-duration: 0.3s;
@@ -123,6 +134,12 @@ html, body{
 .Buttons{
     width: 1000px;
     height: 34%;
+=======
+}
+
+.Buttons{
+    width: 1000px;
+>>>>>>> 45d6bbf5a6bd8b718f1ea532b27d28847166fd4d
     margin: 0 auto;
 }
 
@@ -135,6 +152,7 @@ html, body{
     float: right;
     display: inline-block;
 }
+<<<<<<< HEAD
 
 .TextButton{
     margin: 1.3em auto 0 auto;
@@ -316,3 +334,11 @@ html, body{
 .direction-r .desc {
   margin: 1em 0 0 0.75em;
 }
+=======
+
+.TextButton{
+    margin: 1.3em auto 0 auto;
+    text-align: center;
+    width: 8em;
+}
+>>>>>>> 45d6bbf5a6bd8b718f1ea532b27d28847166fd4d
