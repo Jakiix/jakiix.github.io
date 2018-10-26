@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Vincent JACQUET</title>
     <link rel="stylesheet" href="style/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/Animation.js"></script>
 </head>
 <body>
     <header>
@@ -17,6 +19,11 @@
     </header>
     <div class="Circle"></div>
     <div class="Description">
+            <div class="Logos">
+                <a href="https://fr.linkedin.com/in/vincent-jacquet"><img class="Svg" src="assets/linkedin.svg" alt="Linkedin"></a>
+                <a href="https://github.com/Jakiix"><img class="Svg" src="assets/github.svg" alt="Github"></a>
+                <a href="#" id="test"><img class="Svg" src="assets/email.svg" alt="Email"></a>
+            </div>
             <div class="TextDescription">
                 Abusus enim multitudine hominum, quam tranquillis in rebus diutius rexit, ex agrestibus
                 habitaculis urbes construxit multis opibus firmas et viribus, quarum ad praesens pleraeque
@@ -24,12 +31,57 @@
                 inib appellentur, quae tamen nomina non inib appellentur, quae inib appellentur, quae
             </div>
     </div>
-    <div class="Button" id="DownloadCv">
-
+    <div class="Buttons">
+        <a download="CV.pdf" href="content/CV.pdf">
+            <div class="Button" id="DownloadCv">
+                <p class="TextButton">Download CV</p>
+            </div>
+        </a>
+        <a href="mailto:vincent.jacquet@epitech.eu">
+            <div class="Button" id="ContactMe">
+                <p class="TextButton">Contact me</p>
+            </div>
+        </a>
     </div>
-    <div class="Button" id="ContactMe">
+    <div class="Formation" id="formation">
+        <!-- Timeline -->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+        <!-- The Timeline -->
 
+        <ul class="timeline">
+        	<!-- Item 1 -->
+          <li>
+        		<div class="direction-r">
+        			<div class="flag-wrapper">
+        				<span class="flag">Freelancer</span>
+        				<span class="time-wrapper"><span class="time">2013 - present</span></span>
+        			</div>
+        			<div class="desc">My current employment. Way better than the position before!</div>
+        		</div>
+        	</li>
+
+        	<!-- Item 2 -->
+        	<li>
+        		<div class="direction-l">
+        			<div class="flag-wrapper">
+        				<span class="flag">Horizon Software</span>
+        				<span class="time-wrapper"><span class="time">2011 - 2013</span></span>
+        			</div>
+        			<div class="desc">Scala testing, Java, Jenkins</div>
+        		</div>
+        	</li>
+
+        	<!-- Item 3 -->
+        	<li>
+        		<div class="direction-r">
+        			<div class="flag-wrapper">
+        				<span class="flag">Harvard University</span>
+        				<span class="time-wrapper"><span class="time">2008 - 2011</span></span>
+        			</div>
+        			<div class="desc">A description of all the lectures and courses I have taken and my final degree?</div>
+        		</div>
+        	</li>
+        </ul>
     </div>
-
 </body>
 </html>
