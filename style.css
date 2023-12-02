@@ -1,0 +1,376 @@
+/* POLICES D'ÉCRITURE */
+
+@font-face {
+	font-family: 'Mosk';
+	src: url('./assets/Mosk_Typeface/Mosk_Normal_400.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Mosk_Semi_Bold';
+	src: url('./assets/Mosk_Typeface/Mosk\ Semi-Bold\ 600.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Mosk_Bold';
+	src: url('./assets/Mosk_Typeface/Mosk\ Ultra-Bold\ 900.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Stay_Wild';
+	src: url('./assets/Stay\ Wild.ttf') format('truetype'),
+  url('./assets/Stay\ Wild.otf') format('opentype')
+}
+
+/* ##################### */
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: white;
+  background-color: #29272A;
+  font-family: 'Mosk', sans-serif;
+}
+
+.background{
+  position: relative;
+  height: 100vh;
+}
+
+.background-2 {
+  position: relative;
+  height: 110vh;
+  width: 100%;
+  background-color: #20409F;
+}
+
+.background-3 {
+  position: relative;
+  height: 110vh;
+  width: 100%;
+  background-color: #29272A;
+}
+
+.background-4 {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-color: #20409F;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background-color: #29272A;
+}
+
+.background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30%;
+  width: 70%;
+  height: 100%;
+  background-color: #3366FF;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 2rem 12rem 0 12rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu {
+  font-size: 18px;
+  display: flex;
+  letter-spacing: 1px;
+}
+    
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+}
+
+.menu a:hover {
+  color: lightgray;
+}
+
+.welcome_message {
+  position: relative;
+  z-index: 2;
+  width: 37%;
+  font-family: 'Mosk_Bold', sans-serif;
+  left: 50%;
+  top: 14%;
+  letter-spacing: 2px;
+}
+
+.container {
+  padding: 8%  6% 0 6%;
+}
+
+.blog_title {
+  position: relative;
+  font-family: 'Mosk_Bold', sans-serif;
+  letter-spacing: 2px;
+  margin-top: 0;
+  left: 16%;
+  width: 13%;
+}
+
+.portfolio_title {
+  position: relative;
+  font-family: 'Mosk_Bold', sans-serif;
+  letter-spacing: 2px;
+  margin-top: 10%;
+  left: 16%;
+  width: 22%;
+}
+
+.contact_title {
+  position: relative;
+  font-family: 'Mosk_Bold', sans-serif;
+  letter-spacing: 2px;
+  margin-top: 0;
+  left: 16%;
+  width: 35%;
+}
+
+
+
+.example_blog, .example_blog_2, .example_blog_3 {
+  padding: 1% 2%;
+  border: 4px solid white;
+  border-radius: 24px;
+  position: absolute;
+}
+
+.example_blog {
+  left: 22%;
+  width: 22%;
+}
+
+.example_blog_2 {
+  left: 50%;
+  top: 55%;
+  width: 18%;
+}
+
+.example_blog_3 {
+  left: 53%;
+  top: 13%;
+  width: 23%;
+}
+
+.article_title {
+  font-size: 28px;
+}
+
+.article_resume {
+  font-size: 18px;
+  margin: 13% 0%;
+  line-height: 30px;
+}
+
+.footer_blog {
+  display: flex;
+  justify-content: space-between;
+}
+
+#label_photo, #label_tech, #label_cinema {
+  color: black;
+  padding: 2% 3%;
+  border-radius: 18px;
+  font-size: 12px;
+}
+
+#label_photo {
+  background-color: #99B3FF;
+}
+
+#label_tech {
+  background-color: #99FFB2;
+}
+
+#label_cinema {
+  background-color: #FFE599;
+}
+
+.read_button {
+  font-family: 'Mosk_Semi_Bold', sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  background-size: 34px;
+  display: flex; /* Utilisez la flexbox pour centrer verticalement */
+  align-items: center; /* Centrez verticalement les éléments enfants (texte et icône) */
+}
+
+/* Changer la couleur de la flèche en blanc */
+.read_button::after {
+  content: ''; /* Pour assurer la présence de l'élément ::after */
+  display: inline-block; /* Assurez-vous que l'icône est un élément en ligne */
+  width: 23px; /* Ajustez la largeur selon vos besoins */
+  height: 27px; /* Ajustez la hauteur selon vos besoins */
+  background: url('assets/icons/arrow-right.svg') no-repeat center center;
+  background-size: contain; /* Assurez-vous que l'icône est entièrement contenue dans les dimensions spécifiées */
+  margin-left: 5px;
+  filter: invert(1); /* Inverser la couleur de la flèche pour la rendre blanche */
+  transition: margin-left 0.3s ease; 
+}
+
+.read_button:hover::after {
+  margin-left: 10px; /* Ajustez la distance de déplacement vers la droite lors du survol */
+}
+
+
+h1 {
+  font-size: 4rem;
+}
+
+.title {
+  color: #99B3FF;
+  font-family: 'Stay_Wild', sans-serif;
+  text-decoration: none;
+  font-size: 3rem;
+}
+
+.japan_message {
+  font-family: 'Stay_Wild', sans-serif;
+  font-size: 2rem;
+  -webkit-transform : rotate(-8deg); 
+  -moz-transform : rotate(-8deg); 
+  -ms-transform : rotate(-8deg); 
+  -o-transform : rotate(-8deg); 
+  transform : rotate(-8deg);
+  width: 80%;
+  margin-top: 0;
+}
+
+
+
+.buttons {
+  margin: 10%;
+  text-align: center;
+}
+
+.btn-hover {
+  left: 21%;
+  bottom: 14%;
+  width: 200px;
+  position: absolute;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  margin: 3% 0 0 0;
+  height: 55px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  font-family: 'Mosk_Semi_Bold', sans-serif;
+  letter-spacing: 2px;
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.color-9 {
+  background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+
+/*--------------*/
+
+.svg_container {
+  position: absolute;
+  left: 63%;
+  top: 22%;
+  width: 13%;
+}
+
+.svg_container2 {
+  width: 9%;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.project_svg {
+  width: 22%;
+  position: absolute;
+  left: 40%;
+  top: 43%;
+}
+
+.project_ux, .project_drawing {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ux-animation {
+    animation: uxAnim 2s 1;
+  }
+  .drawing-animation {
+    animation: drawingAnim 2s 1;
+  }
+}
+
+@keyframes uxAnim {
+	0% {
+		opacity: 0;
+		transform: translateX(-250px) translateY(150px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes drawingAnim {
+	0% {
+		opacity: 0;
+		transform: translateX(250px) translateY(150px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0) translateY(0);
+	}
+}
+

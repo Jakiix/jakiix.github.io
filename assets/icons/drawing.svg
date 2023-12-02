@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="512px" height="512px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   
+    .fil5 {fill:#236575}
+    .fil6 {fill:#4D8C1D}
+    .fil7 {fill:#5EAC24}
+    .fil0 {fill:#CC383B}
+    .fil2 {fill:#E6E6E6}
+    .fil1 {fill:#FC4549}
+    .fil3 {fill:#FFAB00}
+    .fil4 {fill:#FFD300}
+   
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+  <g id="_479760632">
+   <path class="fil0" d="M459 124c-3,0 -5,-1 -6,-4l-82 -1c-2,4 -6,5 -9,3 -4,-2 -8,-13 -13,-19l58 -99c1,-3 3,-4 6,-4 0,0 0,0 0,0 3,0 5,1 6,4l54 100c-4,4 -13,20 -14,20z" id="id_116"></path>
+   <path class="fil1" d="M453 512l-87 0c-10,0 -19,-9 -19,-19l2 -390 124 1 -2 390c0,10 -8,18 -18,18z" id="id_117"></path>
+   <path class="fil2" d="M418 372l-15 0c-11,0 -19,-8 -19,-19l0 -111c0,-10 9,-19 19,-19l15 0c10,0 19,9 19,19l0 111c0,10 -9,19 -19,19z" id="id_118"></path>
+   <path class="fil3" d="M305 124c-2,0 -5,-1 -6,-4l-82 -1c-2,4 -6,5 -9,3 -4,-2 -8,-13 -13,-19l58 -99c1,-3 4,-4 6,-4 0,0 0,0 0,0 3,0 5,1 6,4l54 100c-4,4 -13,20 -14,20z" id="id_119"></path>
+   <path class="fil4" d="M299 512l-87 0c-10,0 -19,-9 -19,-19l2 -390 124 1 -2 390c0,10 -8,18 -18,18z" id="id_120"></path>
+   <path class="fil2" d="M264 372l-15 0c-11,0 -19,-8 -19,-19l0 -111c0,-10 9,-19 19,-19l15 0c10,0 19,9 19,19l0 111c0,10 -9,19 -19,19z" id="id_121"></path>
+   <polygon class="fil5" points="193,458 193,448 193,422 193,413 317,413 317,423 317,448 272,448 317,448 317,458 " id="id_122"></polygon>
+   <path class="fil6" d="M151 124c-2,0 -5,-1 -6,-4l-82 -1c-2,4 -6,5 -9,3 -4,-2 -8,-13 -13,-19l58 -99c1,-3 4,-4 6,-4 0,0 0,0 0,0 3,0 5,1 6,4l54 100c-4,4 -13,20 -14,20z" id="id_123"></path>
+   <path class="fil7" d="M145 512l-87 0c-10,0 -19,-9 -19,-19l2 -390 124 1 -2 390c0,10 -8,18 -18,18z" id="id_124"></path>
+   <path class="fil2" d="M110 372l-15 0c-11,0 -19,-8 -19,-19l0 -111c0,-10 9,-19 19,-19l15 0c10,0 19,9 19,19l0 111c0,10 -9,19 -19,19z" id="id_125"></path>
+   <polygon class="fil5" points="347,458 347,448 347,422 347,413 471,413 471,423 471,448 426,448 471,448 471,458 " id="id_126"></polygon>
+   <polygon class="fil5" points="39,458 39,448 39,422 40,413 164,413 163,423 163,448 118,448 163,448 163,458 " id="id_127"></polygon>
+   <polygon class="fil5" points="194,202 195,193 195,167 195,157 319,158 319,168 319,193 273,193 319,193 318,203 " id="id_128"></polygon>
+   <polygon class="fil5" points="348,202 349,193 349,167 349,157 473,158 473,168 473,193 427,193 473,193 472,203 " id="id_129"></polygon>
+   <polygon class="fil5" points="41,202 41,193 41,167 41,157 165,158 165,168 165,193 119,193 165,193 165,203 " id="id_130"></polygon>
+  </g>
+ </g>
+</svg>
