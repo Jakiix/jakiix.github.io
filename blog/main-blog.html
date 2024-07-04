@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="blog.js"></script>
+    <title>Vincent JACQUET - Blog</title>
+    <style>
+        /* POLICES D'ÉCRITURE */
+
+        @font-face {
+            font-family: 'Mosk';
+            src: url('../assets/Mosk_Typeface/Mosk_Normal_400.ttf') format('truetype')
+        }
+
+        @font-face {
+            font-family: 'Mosk_Semi_Bold';
+            src: url('../assets/Mosk_Typeface/Mosk\ Semi-Bold\ 600.ttf') format('truetype')
+        }
+
+        @font-face {
+            font-family: 'Mosk_Bold';
+            src: url('../assets/Mosk_Typeface/Mosk\ Ultra-Bold\ 900.ttf') format('truetype')
+        }
+
+        @font-face {
+            font-family: 'Stay_Wild';
+            src: url('../assets/Stay\ Wild.ttf') format('truetype'),
+        url('../assets/Stay\ Wild.otf') format('opentype')
+        }
+
+        /* ##################### */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .title {
+            color: white;
+            font-family: 'Stay_Wild', sans-serif;
+            text-decoration: none;
+            font-size: 3rem;
+            margin-left: 12rem;
+        }
+        .menu {
+            font-size: 18px;
+            display: flex;
+            letter-spacing: 1px;
+        }
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .menu li {
+            margin-left: 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .menu a:hover {
+            color: lightgray;
+        }
+        .banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3366FF;
+            color: white;
+            padding: 26px 20px;
+        }
+        .banner h1 {
+            margin: 0;
+        }
+        .menu {
+            position: relative;
+            display: inline-block;
+        }
+        .menu button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .menu-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .button {
+            position: absolute;
+            overflow: hidden;
+            height: 3rem;
+            padding: 0 2rem;
+            border-radius: 1.5rem;
+            background: #3d3a4e;
+            background-color: rgb(61, 58, 78);
+            background-size: auto;
+            background-size: 400%;
+            color: #fff;
+            border: none;
+            right: 15%;
+            cursor: pointer;
+        }
+
+        .button:hover::before {
+            transform: scaleX(1);
+        }
+
+        .button-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            width: 100%;
+            height: inherit;
+            border-radius: inherit;
+            background: linear-gradient(
+                82.3deg,
+                rgba(150, 93, 233, 1) 10.8%,
+                rgba(99, 88, 238, 1) 94.3%
+            );
+            transition: all 0.475s;
+        }
+        .text {
+            margin-right: 15%;
+        }
+        .menu-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .menu-content a:hover {
+            background-color: #ddd;
+        }
+        .menu:hover .menu-content {
+            display: block;
+        }
+        .menu:hover button {
+            background-color: #555;
+        }
+        .container {
+            background-color: #29272A;
+            padding: 20px;
+            color: white;
+            min-height: 100vh;
+        }
+        .box {
+            background-color: #424242;
+            margin: 20px 200px;
+            padding: 20px;
+            border-radius: 8px;
+            border: 3px solid white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 1px 1px 20px -2px rgba(0,0,0,0.69);
+            -webkit-box-shadow: 1px 1px 20px -2px rgb(0, 0, 0);
+            -moz-box-shadow: 1px 1px 20px -2px rgba(0,0,0,0.69);
+        }
+        .box h2 {
+            margin: 0 0 10px 0;
+        }
+        .box p {
+            margin: 0;
+            flex-grow: 1;
+            padding-right: 20px;
+        }
+        .box button {
+            background-color: #3366FF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 24px;
+            cursor: pointer;
+        }
+        .box button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <a class="title" href="../index.html">Vincent Jacquet</a>
+        <nav class="menu">
+            <ul>
+                <li><a href="../blog/main-blog.html">Blog</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Me contacter</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="box">
+            <div class="text">
+                <h2>Disney c'était mieux avant ?</h2>
+                <p>Je suis allé voir Wish au ciné... Et c'était très moyen, en fait c'était pas ouf, ni nul, c'était neutre ....</p>
+            </div>
+            <button class="button">
+                <span class="button-content">Lire l'article</span>
+            </button>
+        </div>
+        <div class="box">
+            <div class="text">
+                <h2>Mon timelapse des étoiles</h2>
+                <p>Depuis que je suis jeune j’ai une fascination pour l’astronomie (et pas l’astrologie 😤). Depuis mes premiers films de SF, comme Alien à l’époque, où Interstellar plus récemment (ouais bon 2016 quand même)...</p>
+            </div>
+            <button class="button" id="timelapse-button">
+                <span class="button-content">Lire l'article</span>
+            </button>
+        </div>
+        <div class="box">
+            <div class="text">
+                <h2>Code VS NoCode</h2>
+                <p>Oui bon ok c’est cool, mais y’a plusieurs soucis. 1- ça fait longtemps que j’ai pas dev un site 2- je mettrais quoi dans ce site ? 3- est ce que je fais ça avec un GitHub page ou je vais plus lol cette fois ?...</p>
+            </div>
+            <button class="button">
+                <span class="button-content">Lire l'article</span>
+            </button>
+        </div>
+    </div>
+</body>
+</html>

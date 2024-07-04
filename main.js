@@ -1,4 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    const blogButton = document.getElementById('blogButton');
+    if (blogButton) {
+      blogButton.onclick = function() {
+            window.location.href = 'blog/main-blog.html';
+        };
+    } else {
+        console.log('Button not found');
+    }
+
+    const timelapseButton = document.getElementById('timelapse-button');
+    if (timelapseButton) {
+      console.log("oui")
+      timelapseButton.onclick = function() {
+        console.log("oui2")
+            window.location.href = 'etoiles.html';
+        };
+    } else {
+        console.log('Button not found');
+    }
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         const projectUxSquare = entry.target.querySelector('.project_ux');
