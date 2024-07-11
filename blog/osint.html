@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="blog.js"></script>
-    <title>Vincent JACQUET - Blog</title>
+    <title>VJ - OSINT et Indiana Jones</title>
     <style>
         /* POLICES D'ÉCRITURE */
 
@@ -39,7 +39,14 @@
             font-family: 'Stay_Wild', sans-serif;
             text-decoration: none;
             font-size: 3rem;
-            margin-left: 12rem;
+        }
+        .box-article {
+            background-color: #20409F;
+            color: white;
+            border-radius: 16px;
+            padding: 7% 17% 12% 17%;
+            border: 3px solid;
+            line-height: 32px;
         }
         .menu {
             font-size: 18px;
@@ -63,6 +70,16 @@
 
         .menu a:hover {
             color: lightgray;
+        }
+
+        a {
+            color: #959595;
+            text-decoration:none;
+        }
+
+        a:hover:not(.title) {
+            text-decoration: underline;
+            cursor:pointer
         }
         .banner {
             display: flex;
@@ -160,6 +177,7 @@
             padding: 20px;
             color: white;
             min-height: 100vh;
+            padding: 3% 16%;
         }
         .box {
             background-color: #424242;
@@ -170,9 +188,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 1px 1px 20px -2px rgba(0,0,0,0.69);
-            -webkit-box-shadow: 1px 1px 20px -2px rgb(0, 0, 0);
-            -moz-box-shadow: 1px 1px 20px -2px rgba(0,0,0,0.69);
         }
         .box h2 {
             margin: 0 0 10px 0;
@@ -207,32 +222,37 @@
         </nav>
     </div>
     <div class="container">
-        <div class="box">
-            <div class="text">
-                <h2>Disney c'était mieux avant ?</h2>
-                <p>Je suis allé voir Wish au ciné... Et c'était très moyen, en fait c'était pas ouf, ni nul, c'était neutre ....</p>
-            </div>
-            <button class="button">
-                <span class="button-content">Lire l'article</span>
-            </button>
-        </div>
-        <div class="box">
-            <div class="text">
-                <h2>Mon timelapse des étoiles</h2>
-                <p>Depuis que je suis jeune j’ai une fascination pour l’astronomie (et pas l’astrologie 😤). Depuis mes premiers films de SF, comme Alien à l’époque, où Interstellar plus récemment (ouais bon 2016 quand même)...</p>
-            </div>
-            <button class="button" id="timelapse-button">
-                <span class="button-content">Lire l'article</span>
-            </button>
-        </div>
-        <div class="box">
-            <div class="text">
-                <h2>OSINT et Indiana Jones</h2>
-                <p>Je vais pas vous donner la définition Wikipédia, ou la définition avec des mots compliqués. Déjà d'une parceque c'est pas marrant mais surtout parceque c'est pas marrant ... 👀. L'OSINT consite à utiliser des outils libre d'accès...</p>
-            </div>
-            <button class="button" id="osint-button">
-                <span class="button-content">Lire l'article</span>
-            </button>
+        <div class="box-article">
+            <h1 style="margin-bottom: 12%;font-size: 50px;">OSINT et Indiana Jones</h1>
+            <h2>C'est quoi l'OSINT</h2>
+            Je vais pas vous donner la définition Wikipédia, ou la définition avec des mots compliqués. Déjà d'une parceque c'est pas marrant mais surtout parceque c'est pas marrant ... 👀<br>
+            L'OSINT consite à utiliser des outils libre d'accès, afin de retrouver un lieu (on parle alors de GEOSINT), une personne, un évènement précis, et tout autre choses trouvable sur internet.<br>
+            Par exemple retrouver la prof que t'avais au collège, que t'aimais bien et qui t'avais mis un 20/20 parceque t'étais son chouchou. Ou alors encore plus simplement ... Tu connais Geoguessr ? Bah ça typiquement c'est du GEOSINT. Pour les deux qui suivent pas au fond, Geoguessr c'est le jeu qui te met quelquepart sur la terre, en vue google Street view, et le but et de deviner où tu es situé exactement.<br>
+            Vous l'aurez compris, si on résume, l'OSINT bah c'est une mini chasse au trésors virtuelle grâce à internet et ses outils accessibles à tout le monde<br>
+            Et tu veux savoir comment mon cerveau le traduit ça ? "Hey Vincent ? Et si tu devenais le Indian Jones d'internet ?". La réponse est oui 🤯<br><br>
+
+            <h2>Oui mais concrètement ?</h2>
+            <i>"T'es bien gentil Lara Croft version Wish, mais concrètement on fait comment ?"</i>
+            Alors déjà tu va te calmer ... ok .... j'ai pas de répartie.<br>
+            Tout d'abord, faut préciser un truc, tu fais ce que tu veux, mais stalker quelqu'un c'est pas très jolie jolie, tu peux avoir des problèmes. Je me dédouanne totalement, ici c'est juste à but éducatif que j'écris ces lignes.
+            Déjà faut se poser les bonnes questions, tu cherches quoi ? qui ? Dans quel contexte ? Et surtout tu pars de quelle bases ?<br>
+            Dans tous les cas faut savoir un truc, 99% du temps, Google peut te permettre de retrouver ce que tu cherches, voici plusieurs exemple :<br>
+            - "J'ai une image d'une maison je voudrais savoir où elle se trouve" : Tu peux commencer avec Google Image en mode reverse, tu glisse dépose ton image dans google image, et là magie tu aura plusieurs sites sur lequel ton image apparaît, utile pour les images de cérémonie, de concert, de publicité et j'en passe.<br>
+            - "J'ai un prénom et un nom, et un mail" : Aller hop, une petite recherche Google avec les filtres qui vont bien, à toi de voir comment faire 😅, utile pour avoir la page Linkedin de ton futur patron tyrannique<br>
+            - "J'ai une photo d'un ciel" : Ah là malheureusement ça va être impossible ... Je plaisante, évidemment que c'est possible, mais plus compliqué on va dire. Tu peux te fier aux étoiles, au sens du vent, aux avions si il y en a. Tu l'a compris ya toujours moyen de retrouver un truc.<br>
+            Avec quelques recherches Google et quelques sites utiles ya moyen de faire pas mal de choses<br><br>
+
+            <h2>Tips et astuces</h2>
+            Trucs cool, la communauté OSINT est vraiment super, de ce que j'ai pu voir pour le moment.<br>
+            Ya des discord cool, des évènements, etc... <br>
+            Je vous partage aussi quelques trouvailles :<br> 
+            - <a href="https://start.me/p/DPYPMz/the-ultimate-osint-collection">Une panoplie de liens 1</a><br>
+            - <a href="https://start.me/p/BnrMKd/01-ncso">Une panoplie de liens 2</a><br>
+            - <a href="https://gralhix.com/category/osint/osint-tools/">Un site</a> qui propose des petits challenges histoire de s'entraîner, avec réponse en vidéo de comment s'y prendre<br>
+            - Un compte Twitter qui poste des petits challenges aussi<br><br>
+
+            Sur ce, pas de bêtises, je vous surveille 👀 et à bientôt pour de nouvelles aventures 🤠 <i>(oui je suis à fond dans mon rôle)</i><br><br>
+            <i style="font-size: 13px;">08/07/2024 - Par Vincent J.</i>
         </div>
     </div>
 </body>
