@@ -1,338 +1,208 @@
 {
   "characters": [
     {
-      "name": "Son Goku",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Noir",
-      "gender": "Masculin",
-      "race": "Sayan",
-      "deaths": 2,
-      "can_transform": "Oui"
-    },
-    {
-      "name": "Vegeta",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Noir",
-      "gender": "Masculin",
-      "race": "Sayan",
-      "deaths": 1,
-      "can_transform": "Oui"
-    },
-    {
-      "name": "Son Gohan",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Noir",
-      "gender": "Masculin",
-      "race": "Sayan",
-      "deaths": 1,
-      "can_transform": "Oui"
-    },
-    {
-      "name": "Trunks (futur)",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Violet",
-      "gender": "Masculin",
-      "race": "Sayan",
-      "deaths": 1,
-      "can_transform": "Oui"
-    },
-    {
-      "name": "Son Goten",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Mixte",
-      "gender": "Masculin",
-      "race": "Sayan",
-      "deaths": 0,
-      "can_transform": "Oui"
-    },
-    {
-      "name": "Bulma",
-      "alignment": "Gentil",
-      "fighter": "Non",
-      "hair_color": "Bleu",
-      "gender": "Féminin",
-      "race": "Humaine",
-      "deaths": 0,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Chichi",
-      "alignment": "Gentil",
-      "fighter": "Non",
-      "hair_color": "Noir",
-      "gender": "Féminin",
-      "race": "Humaine",
-      "deaths": 0,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Kame Sennin",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Blanc",
-      "gender": "Masculin",
-      "race": "Humain",
-      "deaths": 0,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Krillin",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Aucun",
-      "gender": "Masculin",
-      "race": "Humain",
-      "deaths": 3,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Piccolo",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Aucun",
-      "gender": "Masculin",
-      "race": "Namek",
-      "deaths": 2,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Freezer",
-      "alignment": "Méchant",
-      "fighter": "Oui",
-      "hair_color": "Aucun",
-      "gender": "Masculin",
-      "race": "Monstre",
-      "deaths": 1,
-      "can_transform": "Oui"
-    },
-    {
-      "name": "Zarbon",
-      "alignment": "Méchant",
-      "fighter": "Oui",
-      "hair_color": "Vert",
-      "gender": "Masculin",
-      "race": "Monstre",
-      "deaths": 1,
-      "can_transform": "Oui"
-    },
-    {
-      "name": "Dodoria",
-      "alignment": "Méchant",
-      "fighter": "Oui",
-      "hair_color": "Aucun",
-      "gender": "Masculin",
-      "race": "Monstre",
-      "deaths": 1,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Androïde 17",
-      "alignment": "Méchant",
-      "fighter": "Oui",
-      "hair_color": "Noir",
-      "gender": "Masculin",
-      "race": "Androïde",
-      "deaths": 0,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Androïde 18",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Blond",
-      "gender": "Féminin",
-      "race": "Androïde",
-      "deaths": 0,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Cell",
-      "alignment": "Méchant",
-      "fighter": "Oui",
-      "hair_color": "Aucun",
-      "gender": "Masculin",
-      "race": "Monstre",
-      "deaths": 1,
-      "can_transform": "Oui"
-    },
-    {
-      "name": "Majin Buu",
-      "alignment": "Méchant",
-      "fighter": "Oui",
-      "hair_color": "Aucun",
-      "gender": "Masculin",
-      "race": "Monstre",
-      "deaths": 1,
-      "can_transform": "Oui"
-    },
-    {
-      "name": "Kaio du Nord",
-      "alignment": "Gentil",
-      "fighter": "Non",
-      "hair_color": "Noir",
-      "gender": "Masculin",
-      "race": "Divinité",
-      "deaths": 1,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Vegetto",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Noir",
-      "gender": "Masculin",
-      "race": "fusion",
-      "deaths": 0,
-      "can_transform": "Oui"
-    },
-    {
-      "name": "Gotenks",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Noir",
-      "gender": "Masculin",
-      "race": "fusion",
-      "deaths": 0,
-      "can_transform": "Oui"
-    },
-    {
-      "name": "Videl",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Noir",
-      "gender": "Féminin",
-      "race": "Humaine",
-      "deaths": 1,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Mr. Satan",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Noir",
-      "gender": "Masculin",
-      "race": "Humain",
-      "deaths": 0,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Tenshinhan",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Aucun",
-      "gender": "Masculin",
-      "race": "Humain",
-      "deaths": 2,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Yamcha",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Noir",
-      "gender": "Masculin",
-      "race": "Humain",
-      "deaths": 2,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Chaozu",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Aucun",
-      "gender": "Masculin",
-      "race": "Humain",
-      "deaths": 3,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Nappa",
-      "alignment": "Méchant",
-      "fighter": "Oui",
-      "hair_color": "Aucun",
-      "gender": "Masculin",
-      "race": "Sayan",
-      "deaths": 1,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Raditz",
-      "alignment": "Méchant",
-      "fighter": "Oui",
-      "hair_color": "Noir",
-      "gender": "Masculin",
-      "race": "Sayan",
-      "deaths": 1,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Ginyu",
-      "alignment": "Méchant",
-      "fighter": "Oui",
-      "hair_color": "Aucun",
-      "gender": "Masculin",
-      "race": "Monstre",
-      "deaths": 1,
-      "can_transform": "Non"
-    },
-    {
       "name": "Babidi",
-      "alignment": "Méchant",
+      "alignment": "Méchant(e)",
       "fighter": "Non",
       "hair_color": "Aucun",
-      "gender": "Masculin",
+      "gender": "Homme",
       "race": "Sorcier",
       "deaths": 1,
       "can_transform": "Non"
     },
     {
-      "name": "Dabra",
-      "alignment": "Méchant",
+      "name": "Bulma",
+      "alignment": "Gentil(le)",
+      "fighter": "Non",
+      "hair_color": "Bleu",
+      "gender": "Femme",
+      "race": "Humain(e)",
+      "deaths": 0,
+      "can_transform": "Non"
+    },
+    {
+      "name": "C-16",
+      "alignment": "Gentil(le)",
       "fighter": "Oui",
       "hair_color": "Rouge",
-      "gender": "Masculin",
+      "gender": "Homme",
+      "race": "Cyborg",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "C-17",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "Cyborg",
+      "deaths": 0,
+      "can_transform": "Non"
+    },
+    {
+      "name": "C-18",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Blond",
+      "gender": "Femme",
+      "race": "Cyborg",
+      "deaths": 0,
+      "can_transform": "Non"
+    },
+    {
+      "name": "C-19",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Cyborg",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Cell",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Monstre",
+      "deaths": 1,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Chaozu",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Humain(e)",
+      "deaths": 3,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Chichi",
+      "alignment": "Gentil(le)",
+      "fighter": "Non",
+      "hair_color": "Noir",
+      "gender": "Femme",
+      "race": "Humain(e)",
+      "deaths": 0,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Dabra",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Rouge",
+      "gender": "Homme",
       "race": "Monstre",
       "deaths": 1,
       "can_transform": "Non"
     },
     {
-      "name": "Kibito",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Blanc",
-      "gender": "Masculin",
-      "race": "Divinité",
-      "deaths": 1,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Kaio Shin",
-      "alignment": "Gentil",
-      "fighter": "Oui",
-      "hair_color": "Blanc",
-      "gender": "Masculin",
-      "race": "Divinité",
-      "deaths": 0,
-      "can_transform": "Non"
-    },
-    {
       "name": "Dende",
-      "alignment": "Gentil",
+      "alignment": "Gentil(le)",
       "fighter": "Non",
       "hair_color": "Aucun",
-      "gender": "Masculin",
+      "gender": "Homme",
       "race": "Namek",
       "deaths": 1,
       "can_transform": "Non"
     },
     {
+      "name": "Dodoria",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Monstre",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Dr. Gero",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Gris",
+      "gender": "Homme",
+      "race": "Cyborg",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Freezer",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Monstre",
+      "deaths": 1,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Ginyu",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Monstre",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Gotenks",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "fusion",
+      "deaths": 0,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Gros Buu",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Monstre",
+      "deaths": 1,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Kaio Shin",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Blanc",
+      "gender": "Homme",
+      "race": "Divinité",
+      "deaths": 0,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Kaio du Nord",
+      "alignment": "Gentil(le)",
+      "fighter": "Non",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "Divinité",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Kame Sennin",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Blanc",
+      "gender": "Homme",
+      "race": "Humain(e)",
+      "deaths": 0,
+      "can_transform": "Non"
+    },
+    {
       "name": "Karin",
-      "alignment": "Gentil",
+      "alignment": "Gentil(le)",
       "fighter": "Non",
       "hair_color": "Blanc",
       "gender": "N/A",
@@ -341,114 +211,264 @@
       "can_transform": "Non"
     },
     {
-      "name": "Yajirobé",
-      "alignment": "Gentil",
+      "name": "Kibito",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Blanc",
+      "gender": "Homme",
+      "race": "Divinité",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Kid Buu",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Monstre",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Krillin",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Humain(e)",
+      "deaths": 3,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Lunch",
+      "alignment": "Gentil(le)",
+      "fighter": "Non",
+      "hair_color": "Ça dépends",
+      "gender": "Femme",
+      "race": "Humain(e)",
+      "deaths": 1,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Mr. Popo",
+      "alignment": "Gentil(le)",
+      "fighter": "Non",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Humain(e)",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Mr. Satan",
+      "alignment": "Gentil(le)",
       "fighter": "Oui",
       "hair_color": "Noir",
-      "gender": "Masculin",
-      "race": "Humain",
-      "deaths": 1,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Dr. Gero",
-      "alignment": "Méchant",
-      "fighter": "Oui",
-      "hair_color": "Gris",
-      "gender": "Masculin",
-      "race": "Androïde",
-      "deaths": 1,
-      "can_transform": "Non"
-    },
-    {
-      "name": "Vieux Kaio Shin",
-      "alignment": "Gentil",
-      "fighter": "Non",
-      "hair_color": "Blanc",
-      "gender": "Masculin",
-      "race": "Divinité",
+      "gender": "Homme",
+      "race": "Humain(e)",
       "deaths": 0,
       "can_transform": "Non"
     },
     {
       "name": "Nail",
-      "alignment": "Gentil",
+      "alignment": "Gentil(le)",
       "fighter": "Oui",
       "hair_color": "Aucun",
-      "gender": "Masculin",
+      "gender": "Homme",
       "race": "Namek",
       "deaths": 1,
       "can_transform": "Non"
     },
     {
-        "name": "Oob",
-        "alignment": "Gentil",
-        "fighter": "Oui",
-        "hair_color": "Noir",
-        "gender": "Masculin",
-        "race": "Terrien",
-        "deaths": 0,
-        "can_transform": "Non"
+      "name": "Nappa",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Sayan",
+      "deaths": 1,
+      "can_transform": "Non"
     },
     {
-        "name": "Mr. Popo",
-        "alignment": "Gentil",
-        "fighter": "Non",
-        "hair_color": "Aucun",
-        "gender": "Masculin",
-        "race": "Humain",
-        "deaths": 1,
-        "can_transform": "Non"
+      "name": "Oob",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "Terrien",
+      "deaths": 0,
+      "can_transform": "Non"
     },
     {
-        "name": "Lunch",
-        "alignment": "Gentil",
-        "fighter": "Non",
-        "hair_color": "Ça dépends",
-        "gender": "Féminin",
-        "race": "Humain",
-        "deaths": 1,
-        "can_transform": "Oui"
+      "name": "Piccolo",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Namek",
+      "deaths": 2,
+      "can_transform": "Non"
     },
     {
-        "name": "C-16",
-        "alignment": "Gentil",
-        "fighter": "Oui",
-        "hair_color": "Rouge",
-        "gender": "Masculin",
-        "race": "Androïde",
-        "deaths": 1,
-        "can_transform": "Non"
+      "name": "Raditz",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "Sayan",
+      "deaths": 1,
+      "can_transform": "Non"
     },
     {
-        "name": "Tout-Puissant",
-        "alignment": "Gentil",
-        "fighter": "Oui",
-        "hair_color": "Aucun",
-        "gender": "Masculin",
-        "race": "Namek",
-        "deaths": 1,
-        "can_transform": "Non"
+      "name": "Shenron",
+      "alignment": "Gentil(le)",
+      "fighter": "Non",
+      "hair_color": "Aucun",
+      "gender": "N/A",
+      "race": "Dragon",
+      "deaths": 0,
+      "can_transform": "Non"
     },
     {
-        "name": "Androïde 19",
-        "alignment": "Méchant",
-        "fighter": "Oui",
-        "hair_color": "Aucun",
-        "gender": "Masculin",
-        "race": "Androïde",
-        "deaths": 1,
-        "can_transform": "Non"
+      "name": "Son Gohan",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "Sayan",
+      "deaths": 1,
+      "can_transform": "Oui"
     },
     {
-        "name": "Shenron",
-        "alignment": "Gentil",
-        "fighter": "Non",
-        "hair_color": "Aucun",
-        "gender": "N/A",
-        "race": "Dragon",
-        "deaths": 0,
-        "can_transform": "Non"
+      "name": "Son Goku",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "Sayan",
+      "deaths": 2,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Son Goten",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "Sayan",
+      "deaths": 0,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Super Buu",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Monstre",
+      "deaths": 1,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Tenshinhan",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Humain(e)",
+      "deaths": 2,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Tout-Puissant",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Namek",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Trunks (futur)",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Violet",
+      "gender": "Homme",
+      "race": "Sayan",
+      "deaths": 1,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Vegeta",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "Sayan",
+      "deaths": 1,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Vegetto",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "fusion",
+      "deaths": 0,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Videl",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Femme",
+      "race": "Humain(e)",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Vieux Kaio Shin",
+      "alignment": "Gentil(le)",
+      "fighter": "Non",
+      "hair_color": "Blanc",
+      "gender": "Homme",
+      "race": "Divinité",
+      "deaths": 0,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Yajirobé",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "Humain(e)",
+      "deaths": 1,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Yamcha",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Noir",
+      "gender": "Homme",
+      "race": "Humain(e)",
+      "deaths": 2,
+      "can_transform": "Non"
+    },
+    {
+      "name": "Zarbon",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Vert",
+      "gender": "Homme",
+      "race": "Monstre",
+      "deaths": 1,
+      "can_transform": "Oui"
     }
   ]
 }

@@ -81,7 +81,7 @@ function makeTwitterPost(time) {
     // Obtenir le drapeau en émoji
     const flagEmoji = getFlagEmoji(countryCode);
 
-    return `${flagEmoji} DBZle Game - ⌛ ${time}\n\n${emojiString}\nhttps://www.vincent-jacquet.fr/dbzle`; 
+    return `${flagEmoji} DBZle Game - ⌛ ${time}\n\n${emojiString}\nhttps://www.vincent-jacquet.fr/dbz/dbzle.html`; 
 }
 
 function youWin() {
@@ -90,31 +90,23 @@ function youWin() {
             // Arrête le timer
             clearInterval(timer);
             // Titre
-            modalTitle.textContent = "Gagné";
-            // Icône
-            const iconContainer = document.getElementById("icon-container");
-            if (iconContainer) {
-                iconContainer.classList.remove("bg-red-100");
-                // Créer un nouvel élément span avec l'emoji de fête
-                const emoji = document.createElement("span");
-                emoji.textContent = "🎉"; // Ajouter l'emoji
-                emoji.className = "text-red-600 text-4xl"; // Ajouter les classes pour la couleur et la taille
-    
-                // Remplacer le contenu du conteneur par l'emoji
-                iconContainer.innerHTML = ""; 
-                iconContainer.appendChild(emoji);
-            }
+            modalTitle.textContent = "🎉 Gagné 🎉";
             // Message détaillé
             const felicitations = document.getElementById("felicitations");
             const time = document.getElementById("time");
             const bye = document.getElementById("bye");
             if (felicitations && time && bye) {
                 felicitations.textContent = `Félicitation la bonne réponse était bien : ${randomElement.name}.`;
-                time.textContent = `Temps total : ${Math.floor(elapsedTime / 1000)} seconde(s).`;
+                if (Math.floor(elapsedTime / 1000) > 60) {
+                    const minutes = (Math.floor(elapsedTime / 1000) / 60).toFixed(2); // Convertir en minutes avec 2 décimales
+                    time.textContent = `Temps total : ${minutes} minute(s).`;
+                } else {
+                    time.textContent = `Temps total : ${Math.floor(elapsedTime / 1000)} seconde(s).`;
+                }
                 bye.textContent = `Rendez-vous demain pour une nouvelle devinette`;
             }
             // Vider le contenu des autres paragraphes
-            const paragraphs = document.querySelectorAll('.mt-2 p:not(#felicitations,#time,#bye)');
+            const paragraphs = document.querySelectorAll('#win p:not(#felicitations,#time,#bye)');
             paragraphs.forEach(p => {
                 p.textContent = "";
             });
@@ -131,7 +123,8 @@ function youWin() {
             });
         }
         // Fait apparaître la modale de nouveau
-        elementToRemove.hidden = false;
+        //elementToRemove.hidden = false;
+        elementToRemove.classList.remove('hidden');
 }
 
 function addCharacterToTable(character) {
@@ -185,7 +178,8 @@ function addCharacterToTable(character) {
 const removeBtn = document.getElementById('delete-modale');
 
 removeBtn.addEventListener('click', function() {
-    elementToRemove.hidden = true;
+    //elementToRemove.hidden = true;
+    elementToRemove.classList.add('hidden');
     if (!timer) {
         // Démarrer le timer
         startTime = Date.now() - elapsedTime;
