@@ -1,72 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DBZdle - Vincent JACQUET</title>
-    <link rel="icon" href="../assets/img/favicon-dbzle.png" type="image/x-icon" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-image: url("../assets/img/bg-dbz.png");
-            overflow-y: scroll; /* Toujours afficher la scrollbar verticale */
-        }
-        .suggestions {
-            display: none;
-        }
-    </style>
-</head>
-<body class="w-full bg-gray-100 flex items-center justify-center">
-
-    <div class="w-full flex flex-col justify-center items-center">
-        <!-- Container de recherche -->
-        <div class="bg-white rounded-lg shadow-lg p-6 w-4/5 md:w-1/4 m-6 relative">
-            <img src="../assets/img/dbz-logo.png" alt="Logo Dragon Ball Z" class="w-full" />
-            <h1 class="text-2xl font-bold mb-4 text-center">Devine le personnage de Dragon Ball Z d'aujourd'hui !</h1>
-            <h3 class="text-md text-gray-400 mb-4 text-center">Tape n'importe quel personnage pour commencer.</h3>
-            <input type="text" id="search" placeholder="Tapez un nom..." oninput="filterCharacters()" class="border border-gray-300 p-2 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <div id="suggestions" class="absolute hidden top-full left-0 right-0 z-10 bg-white border border-gray-300 max-h-48 sm:max-h-36 overflow-y-auto shadow-lg mt-1"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DBZdle - Vincent JACQUET</title>
+        <link rel="icon" href="../assets/img/favicon-dbzle.png" type="image/x-icon" />
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-image: url("../assets/img/bg-dbz.png");
+                overflow-y: scroll; /* Toujours afficher la scrollbar verticale */
+            }
+            .suggestions {
+                display: none;
+            }
+        </style>
+    </head>
+    <body class="w-full bg-gray-100 flex items-center justify-center">
+        <div class="w-full flex flex-col justify-center items-center">
+            <!-- Container de recherche -->
+            <div class="bg-white rounded-lg shadow-lg p-6 w-4/5 md:w-1/4 m-6 relative">
+                <img src="../assets/img/dbz-logo.png" alt="Logo Dragon Ball Z" class="w-full h-auto" />
+                <h1 class="text-2xl font-bold mb-4 text-center">Devine le personnage de Dragon Ball Z d'aujourd'hui !</h1>
+                <h3 class="text-md text-gray-400 mb-4 text-center">Tape n'importe quel personnage pour commencer.</h3>
+                <input type="text" id="search" placeholder="Tapez un nom..." oninput="filterCharacters()" class="border border-gray-300 p-2 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <div id="suggestions" class="absolute hidden top-full left-0 right-0 z-10 bg-white border border-gray-300 max-h-48 sm:max-h-36 overflow-y-auto shadow-lg mt-1"></div>
+            </div>
+            <!-- Tableau en dessous de la recherche -->
+            <div class="bg-gray-400 bg-opacity-20 rounded-lg shadow-lg px-4 py-6 w-11/12 md:w-1/2 md:justify-center md:flex m-6 overflow-x-auto">
+                <table class="table-auto bg-white rounded-lg shadow-lg w-full">
+                    <thead class="bg-white-200 divide-blue-x">
+                        <tr>
+                            <th class="px-3 py-2 border-slate-300">Nom</th>
+                            <th class="px-3 py-2 border border-slate-300">Côté</th>
+                            <th class="px-3 py-2 border border-slate-300">Combattant</th>
+                            <th class="px-3 py-2 border border-slate-300">Cheveux</th>
+                            <th class="px-3 py-2 border border-slate-300">Sexe</th>
+                            <th class="px-3 py-2 border border-slate-300">Race</th>
+                            <th class="px-3 py-2 border border-slate-300">Mort(s)</th>
+                            <th class="px-3 py-2 border-slate-300">Transformation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="character-table-body">
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
-    
-        <!-- Tableau en dessous de la recherche -->
-        <div class="bg-gray-400 bg-opacity-20 rounded-lg shadow-lg px-4 py-6 w-11/12 md:w-1/2 md:justify-center md:flex m-6 overflow-x-auto">
-            <table class="table-auto bg-white rounded-lg shadow-lg w-full">
-                <thead class="bg-white-200 divide-blue-x">
-                    <tr>
-                        <th class="px-3 py-2 border-slate-300">Nom</th>
-                        <th class="px-3 py-2 border border-slate-300">Côté</th>
-                        <th class="px-3 py-2 border border-slate-300">Combattant</th>
-                        <th class="px-3 py-2 border border-slate-300">Cheveux</th>
-                        <th class="px-3 py-2 border border-slate-300">Sexe</th>
-                        <th class="px-3 py-2 border border-slate-300">Race</th>
-                        <th class="px-3 py-2 border border-slate-300">Mort(s)</th>
-                        <th class="px-3 py-2 border-slate-300">Transformation</th>
-                    </tr>
-                </thead>
-                <tbody id="character-table-body">
-                </tbody>
-            </table>
-        </div>
-          
-    </div>
-    
-
-    <!-- Modale -->
-    <div id="modale"  aria-labelledby="modal-title" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-around px-4">
-        <div id="win" class="bg-white rounded-lg shadow-lg p-6 max-w-60 sm:m-6 sm:text-xs lg:max-h-96 sm:max-h-80">
-            <h2 id="modal-title" class="text-2xl font-bold mb-4 text-center">📋 Règles</h2>
-            <p class="mb-2 text-gray-500" id="felicitations">- Personnages de Dragon Ball Z uniquement (uniquement présent dans le manga, et pas dans les films ou jeux-vidéos)</p>
-            <p class="mb-2 text-gray-500" id="time">- Le <i>Nom</i> est le nom dans la version française</p>
-            <p class="mb-2 text-gray-500" id="bye">- Le <i>Côté</i> corresponds à "Gentil" ou "Méchant", prenant en compte uniquement le côté correspondant à la toute fin du manga, par exemple Gros Boo est considéré comme Gentil</p>
-            <p class="mb-2 text-gray-500">- Si le personnage combat dans Dragon Ball mais pas dans Dragon Ball Z, il sera considéré tout de même comme non Combattant</p>
-            <p class="mb-2 text-gray-500">- La <i>couleur des cheveux</i>, corresponds, aux cheveux de base, or transformation, ou le plus souvent vu, Krillin sera considéré comme chauve par exemple</p>
-            <div class="text-center">
-                <button type="button" id="delete-modale" class="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    Jouer
-                </button>
+        <!-- Bouton en haut à droite -->
+        <button class="absolute top-4 right-4 bg-blue-500 hover:bg-blue-700 text-white py-3 px-6 rounded-full shadow-lg hover:bg-indigo-600 transition duration-500 hover:scale-125">
+            <a href="../index.html">Revenir à l'accueil du site</a>
+        </button>
+        <!-- Modale -->
+        <div id="modale"  aria-labelledby="modal-title" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-around px-4">
+            <div id="win" class="bg-white rounded-lg shadow-lg p-6 max-w-60 sm:m-6 sm:text-xs lg:max-h-96 sm:max-h-80">
+                <h2 id="modal-title" class="text-2xl font-bold mb-4 text-center">📋 Règles</h2>
+                <p class="mb-2 text-gray-500" id="felicitations">- Personnages de Dragon Ball Z uniquement (uniquement présent dans le manga, et pas dans les films ou jeux-vidéos)</p>
+                <p class="mb-2 text-gray-500" id="time">- Le <i>Nom</i> est le nom dans la version française</p>
+                <p class="mb-2 text-gray-500" id="bye">- Le <i>Côté</i> corresponds à "Gentil" ou "Méchant", prenant en compte uniquement le côté correspondant à la toute fin du manga, par exemple Gros Boo est considéré comme Gentil</p>
+                <p class="mb-2 text-gray-500">- Si le personnage combat dans Dragon Ball mais pas dans Dragon Ball Z, il sera considéré tout de même comme non Combattant</p>
+                <p class="mb-2 text-gray-500">- La <i>couleur des cheveux</i>, corresponds, aux cheveux de base, or transformation, ou le plus souvent vu, Krillin sera considéré comme chauve par exemple</p>
+                <div class="text-center">
+                    <button type="button" id="delete-modale" class="bg-blue-500 hover:bg-blue-700 text-white font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Jouer
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
