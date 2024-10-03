@@ -61,7 +61,7 @@
       "can_transform": "Non"
     },
     {
-      "name": "Cell",
+      "name": "Cell (forme de base)",
       "alignment": "Méchant(e)",
       "fighter": "Oui",
       "hair_color": "Aucun",
@@ -69,6 +69,26 @@
       "race": "Monstre",
       "deaths": 1,
       "can_transform": "Oui"
+    },
+    {
+      "name": "Cell (C-17)",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Monstre",
+      "deaths": 1,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Cell (Parfait)",
+      "alignment": "Méchant(e)",
+      "fighter": "Oui",
+      "hair_color": "Aucun",
+      "gender": "Homme",
+      "race": "Monstre",
+      "deaths": 0,
+      "can_transform": "Non"
     },
     {
       "name": "Chaozu",
@@ -111,16 +131,6 @@
       "can_transform": "Non"
     },
     {
-      "name": "Dodoria",
-      "alignment": "Méchant(e)",
-      "fighter": "Oui",
-      "hair_color": "Aucun",
-      "gender": "Homme",
-      "race": "Monstre",
-      "deaths": 1,
-      "can_transform": "Non"
-    },
-    {
       "name": "Dr. Gero",
       "alignment": "Méchant(e)",
       "fighter": "Oui",
@@ -156,7 +166,7 @@
       "fighter": "Oui",
       "hair_color": "Noir",
       "gender": "Homme",
-      "race": "fusion",
+      "race": "Sayan",
       "deaths": 0,
       "can_transform": "Oui"
     },
@@ -391,13 +401,23 @@
       "can_transform": "Non"
     },
     {
-      "name": "Trunks (futur)",
+      "name": "Trunks",
       "alignment": "Gentil(le)",
       "fighter": "Oui",
-      "hair_color": "Violet",
+      "hair_color": "Violet/Gris",
       "gender": "Homme",
       "race": "Sayan",
       "deaths": 1,
+      "can_transform": "Oui"
+    },
+    {
+      "name": "Trunks (futur)",
+      "alignment": "Gentil(le)",
+      "fighter": "Oui",
+      "hair_color": "Violet/Gris",
+      "gender": "Homme",
+      "race": "Sayan",
+      "deaths": 0,
       "can_transform": "Oui"
     },
     {
@@ -459,16 +479,6 @@
       "race": "Humain(e)",
       "deaths": 2,
       "can_transform": "Non"
-    },
-    {
-      "name": "Zarbon",
-      "alignment": "Méchant(e)",
-      "fighter": "Oui",
-      "hair_color": "Vert",
-      "gender": "Homme",
-      "race": "Monstre",
-      "deaths": 1,
-      "can_transform": "Oui"
     }
   ]
 }
