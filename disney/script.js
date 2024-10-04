@@ -81,10 +81,15 @@ function makeTwitterPost(time) {
     // Obtenir le drapeau en émoji
     const flagEmoji = getFlagEmoji(countryCode);
 
+    if (localStorage.getItem('emojiString') !== null) {
+        emojiString = localStorage.getItem('emojiString')
+    }
+
     return `${flagEmoji} Disneyle Game - ⌛ ${time}\n\n${emojiString}\nhttps://www.vincent-jacquet.fr/disney/disneyle.html`; 
 }
 
 function youWin() {
+    let timeResult;
     const modalTitle = document.getElementById("modal-title");
         if (modalTitle) {
             // Arrête le timer
@@ -97,11 +102,17 @@ function youWin() {
             const bye = document.getElementById("bye");
             if (felicitations && time && bye) {
                 felicitations.textContent = `Félicitation la bonne réponse était bien : ${randomElement.name}.`;
-                if (Math.floor(elapsedTime / 1000) > 60) {
-                    const minutes = (Math.floor(elapsedTime / 1000) / 60).toFixed(2); // Convertir en minutes avec 2 décimales
+                if (localStorage.getItem('time') !== null) {
+                    timeResult = localStorage.getItem('time')
+                } else {
+                    timeResult = Math.floor(elapsedTime / 1000)
+                    localStorage.setItem('time', timeResult);
+                }
+                if (timeResult > 60) {
+                    const minutes = (timeResult / 60).toFixed(2); // Convertir en minutes avec 2 décimales
                     time.textContent = `Temps total : ${minutes} minute(s).`;
                 } else {
-                    time.textContent = `Temps total : ${Math.floor(elapsedTime / 1000)} seconde(s).`;
+                    time.textContent = `Temps total : ${timeResult} seconde(s).`;
                 }
                 bye.textContent = `Rendez-vous demain pour une nouvelle devinette`;
             }
@@ -112,7 +123,8 @@ function youWin() {
             });
             // Remplace le bouton
             const shareButton = document.getElementById("delete-modale");
-            const twitterShareText = makeTwitterPost(`${Math.floor(elapsedTime / 1000)} secondes`)
+            const twitterShareText = makeTwitterPost(`${timeResult} secondes`)
+            localStorage.setItem('todayWinResult', twitterShareText);
             timer = null; // Réinitialiser la variable du timer
             elapsedTime = 0; // Réinitialiser le temps écoulé
             const twitterShareUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(twitterShareText);
@@ -122,8 +134,6 @@ function youWin() {
                 window.open(twitterShareUrl, "_blank");
             });
         }
-        // Fait apparaître la modale de nouveau
-        //elementToRemove.hidden = false;
         elementToRemove.classList.remove('hidden');
 }
 
@@ -149,6 +159,8 @@ function addCharacterToTable(character) {
     emojiString += habitatBgColor === '#4ade80' ? '🟩' : '🟥';
     emojiString += année_du_premier_filmBgColor === '#4ade80' ? '🟩' : '🟥';
     emojiString += sexeBgColor === '#4ade80' ? '🟩' : '🟥';
+
+    localStorage.setItem('emojiString', emojiString)
 
     // Date + ou -
     if (année_du_premier_filmBgColor !== '#4ade80') {
@@ -179,17 +191,30 @@ function addCharacterToTable(character) {
 
 const removeBtn = document.getElementById('delete-modale');
 
+window.onload = loadCharacters;
+
 removeBtn.addEventListener('click', function() {
     //elementToRemove.hidden = true;
     elementToRemove.classList.add('hidden');
-    if (!timer) {
-        // Démarrer le timer
-        startTime = Date.now() - elapsedTime;
-        timer = setInterval(() => {
-            elapsedTime = Date.now() - startTime;
-        }, 1000);
+    if (canPlayToday()) { 
+        if (!timer) {
+            // Démarrer le timer
+            startTime = Date.now() - elapsedTime;
+            timer = setInterval(() => {
+                elapsedTime = Date.now() - startTime;
+            }, 1000);
+        }
+    } else {
+        youWin()
     }
-  });
+});
 
-// Charger les personnages lors du chargement de la page
-window.onload = loadCharacters;
+function canPlayToday() {
+    const today = new Date().toLocaleDateString();
+    const lastPlayed = localStorage.getItem('lastPlayedDate');
+    if (lastPlayed !== today) {
+        localStorage.setItem('lastPlayedDate', today);
+        return true;
+    }
+    return false;
+}
