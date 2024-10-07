@@ -16,4 +16,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "Variable - ${{ secrets.FIREBASE_SECRET }}"
+      - run: |
+          if [ -z "${{ secrets.FIREBASE_SECRET }}" ]; then
+            echo "Secret is missing!"
+          else
+            echo "Secret is available."
+          fi
