@@ -201,10 +201,10 @@
       "can_transform": "Non"
     },
     {
-      "name": "Kame Sennin",
+      "name": "Tortue genial / Kame Senin",
       "alignment": "Gentil(le)",
       "fighter": "Oui",
-      "hair_color": "Blanc",
+      "hair_color": "Aucun",
       "gender": "Homme",
       "race": "Humain(e)",
       "deaths": 0,
@@ -271,7 +271,7 @@
       "can_transform": "Non"
     },
     {
-      "name": "Mr. Satan",
+      "name": "Mr. Satan / Hercule",
       "alignment": "Gentil(le)",
       "fighter": "Oui",
       "hair_color": "Noir",
@@ -311,7 +311,7 @@
       "can_transform": "Non"
     },
     {
-      "name": "Piccolo",
+      "name": "Piccolo / Petit coeur",
       "alignment": "Gentil(le)",
       "fighter": "Oui",
       "hair_color": "Aucun",
@@ -331,7 +331,7 @@
       "can_transform": "Non"
     },
     {
-      "name": "Shenron",
+      "name": "Shenron / Dragon sacré",
       "alignment": "Gentil(le)",
       "fighter": "Non",
       "hair_color": "Aucun",

@@ -17,7 +17,7 @@
         "sexe": "Masculin"
       },
       {
-        "name": "Archimère Porter",
+        "name": "Archimede Porter",
         
         "type_de_personnage": "Figure parentale",
         "habitat": "Terrestre",
@@ -81,7 +81,7 @@
         "sexe": "Masculin"
       },
       {
-        "name": "Grand-mère feuillage",
+        "name": "Grand-mere feuillage",
         
         "type_de_personnage": "Mentor",
         "habitat": "Forêt",
@@ -89,7 +89,7 @@
         "sexe": "Féminin"
       },
       {
-        "name": "Génie",
+        "name": "Genie",
         
         "type_de_personnage": "Compagnon",
         "habitat": "Magique",
@@ -97,7 +97,7 @@
         "sexe": "Masculin"
       },
       {
-        "name": "Hadès",
+        "name": "Hades",
         
         "type_de_personnage": "Antagoniste",
         "habitat": "Enfer",
@@ -233,7 +233,7 @@
         "sexe": "Masculin"
       },
       {
-        "name": "Mère Gothel",
+        "name": "Mere Gothel",
         
         "type_de_personnage": "Antagoniste",
         "habitat": "Terrestre",
@@ -329,7 +329,7 @@
         "sexe": "Masculin"
       },
       {
-        "name": "Pégase",
+        "name": "Pegase",
         
         "type_de_personnage": "Compagnon",
         "habitat": "Domestique",
@@ -385,7 +385,7 @@
         "sexe": "Masculin"
       },
       {
-        "name": "Sébastien",
+        "name": "Sebastien",
         
         "type_de_personnage": "Compagnon",
         "habitat": "Océan",
