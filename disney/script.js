@@ -211,10 +211,12 @@ removeBtn.addEventListener('click', function() {
 
 function canPlayToday() {
     const today = new Date().toLocaleDateString();
+    console.log(today)
     const lastPlayed = localStorage.getItem('lastPlayedDate');
     if (lastPlayed !== today) {
         localStorage.setItem('lastPlayedDate', today);
         return true;
+    } else {
+        return false;
     }
-    return false;
 }
