@@ -165,9 +165,9 @@ function addCharacterToTable(character) {
     // Date + ou -
     if (année_du_premier_filmBgColor !== '#4ade80') {
         if (randomElement.année_du_premier_film > character.année_du_premier_film) {
-            dateArrow += '⬆️'
+            dateArrow += 'Plus récent que '
         } else {
-            dateArrow += '⬇️'
+            dateArrow += 'Plus vieux que '
         }
     }
 
@@ -178,13 +178,14 @@ function addCharacterToTable(character) {
         <td class="border border-gray-300 p-2 text-center" style="background-color: ${nameBgColor};">${character.name}</td>
         <td class="border border-gray-300 p-2 text-center" style="background-color: ${type_de_personnageBgColor};">${character.type_de_personnage}</td>
         <td class="border border-gray-300 p-2 text-center" style="background-color: ${habitatBgColor};">${character.habitat}</td>
-        <td class="border border-gray-300 p-2 text-center" style="background-color: ${année_du_premier_filmBgColor};">${character.année_du_premier_film} ${dateArrow}</td>
+        <td class="border border-gray-300 p-2 text-center" style="background-color: ${année_du_premier_filmBgColor};">${dateArrow} ${character.année_du_premier_film}</td>
         <td class="border border-gray-300 p-2 text-center" style="background-color: ${sexeBgColor};">${character.sexe}</td>
     `;
 
     tableBody.appendChild(newRow);
 
     if (allEqual) {
+        localStorage.setItem('winOrNot', true)
         youWin()
     }
 }
@@ -194,7 +195,6 @@ const removeBtn = document.getElementById('delete-modale');
 window.onload = loadCharacters;
 
 removeBtn.addEventListener('click', function() {
-    //elementToRemove.hidden = true;
     elementToRemove.classList.add('hidden');
     if (canPlayToday()) { 
         if (!timer) {
@@ -206,17 +206,25 @@ removeBtn.addEventListener('click', function() {
         }
     } else {
         youWin()
+        localStorage.setItem('winOrNot', true)
     }
 });
 
 function canPlayToday() {
     const today = new Date().toLocaleDateString();
-    console.log(today)
     const lastPlayed = localStorage.getItem('lastPlayedDate');
-    if (lastPlayed !== today) {
-        localStorage.setItem('lastPlayedDate', today);
-        return true;
+    const winOrNot = localStorage.getItem('winOrNot') === 'true'; // Conversion en booléen
+
+    if (!winOrNot) { // Si la personne n'a pas gagné aujourd'hui
+        if (lastPlayed !== today) { // Si la personne n'a pas encore joué aujourd'hui
+            localStorage.setItem('lastPlayedDate', today);
+            localStorage.setItem('winOrNot', false); // Initialisation à faux pour la nouvelle journée
+            return true;
+        } else {
+            return true; // Peut continuer à jouer s'il n'a pas encore gagné aujourd'hui
+        }
     } else {
-        return false;
+        return false; // Si la personne a gagné, elle ne peut plus jouer
     }
 }
+
