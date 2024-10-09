@@ -185,7 +185,7 @@ function addCharacterToTable(character) {
     tableBody.appendChild(newRow);
 
     if (allEqual) {
-        localStorage.setItem('winOrNot', true)
+        localStorage.setItem('winOrNot', 'true')
         youWin()
     }
 }
@@ -206,25 +206,22 @@ removeBtn.addEventListener('click', function() {
         }
     } else {
         youWin()
-        localStorage.setItem('winOrNot', true)
+        localStorage.setItem('winOrNot', 'true')
     }
 });
 
 function canPlayToday() {
     const today = new Date().toLocaleDateString();
     const lastPlayed = localStorage.getItem('lastPlayedDate');
-    const winOrNot = localStorage.getItem('winOrNot') === 'true'; // Conversion en booléen
+    const hasWon = localStorage.getItem('winOrNot') === 'true';
 
-    if (!winOrNot) { // Si la personne n'a pas gagné aujourd'hui
-        if (lastPlayed !== today) { // Si la personne n'a pas encore joué aujourd'hui
-            localStorage.setItem('lastPlayedDate', today);
-            localStorage.setItem('winOrNot', false); // Initialisation à faux pour la nouvelle journée
-            return true;
-        } else {
-            return true; // Peut continuer à jouer s'il n'a pas encore gagné aujourd'hui
-        }
-    } else {
-        return false; // Si la personne a gagné, elle ne peut plus jouer
+    // Si c'est un nouveau jour, réinitialise l'état de victoire
+    if (lastPlayed !== today) {
+        localStorage.setItem('lastPlayedDate', today);
+        localStorage.setItem('winOrNot', 'false');
+        return true; // Peut jouer car c'est un nouveau jour
     }
-}
 
+    // Peut jouer uniquement si n'a pas encore gagné aujourd'hui
+    return !hasWon;
+}
