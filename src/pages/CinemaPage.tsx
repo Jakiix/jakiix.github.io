@@ -1,5 +1,6 @@
-import { Star } from 'lucide-react';
+import { Star, Home } from 'lucide-react';
 import { films, MovieReview } from '../data/movies';
+import { Link } from 'react-router-dom';
 
 function StarRating({ rating }: { rating: number }) {
     return (
@@ -45,6 +46,13 @@ export function CinemaPage() {
     return (
         <div className="min-h-screen bg-gray-900 py-12 px-6">
         <div className="max-w-7xl mx-auto">
+        <Link 
+                to="/" 
+                className="fixed top-6 left-6 bg-white/50 p-3 rounded-full backdrop-blur-sm hover:bg-white/70 transition-colors duration-300 shadow-lg"
+                aria-label="Retour à l'accueil"
+            >
+            <Home className="w-6 h-6 text-gray-800" />
+        </Link>
             <h1 className="text-4xl font-bold text-white mb-12 text-center">
             Critiques de Films
             </h1>

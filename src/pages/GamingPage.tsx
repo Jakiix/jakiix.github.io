@@ -1,6 +1,16 @@
+import { Link } from 'react-router-dom';
+import { Home } from 'lucide-react';
+
 export function GamingPage() {
   return (
     <div className="min-h-screen bg-custom-radial relative overflow-hidden">
+      <Link 
+        to="/" 
+        className="fixed top-6 left-6 bg-white/50 p-3 rounded-full backdrop-blur-sm hover:bg-white/70 transition-colors duration-300 shadow-lg"
+        aria-label="Retour à l'accueil"
+      >
+        <Home className="w-6 h-6 text-gray-800" />
+      </Link>
       <div className="container mx-auto px-4 py-12">
         <h1 className="neon-text text-6xl font-md text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
           Gaming

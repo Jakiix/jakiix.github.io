@@ -1,30 +1,26 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Camera, Gamepad, Newspaper, Code, Film, Milestone } from 'lucide-react';
+import { Camera, Newspaper, Film, Milestone } from 'lucide-react';
 
 interface ThemeCardProps {
   theme: string;
   description: string;
-  icon: 'photo' | 'gaming' | 'blog' | 'it' | 'cinema' | 'journey';
+  icon: 'photo' | 'blog' | 'cinema' | 'journey';
   imageUrl: string;
 }
 
 const icons = {
   photo: Camera,
-  gaming: Gamepad,
   blog: Newspaper,
-  it: Code,
   cinema: Film,
   journey: Milestone,
 };
 
 const routes = {
-  'Gaming': '/gaming',
   'Gallerie photo': '/photo',
   'Ciné': '/cinema',
-  'Blog': '/blog',
-  'IT': '/it',
-  'Mon parcours': '/cv',
+  '🚧 Blog 🚧': '/blog',
+  '🚧 Mon parcours 🚧': '/cv',
 };
 
 export function ThemeCard({ theme, description, icon, imageUrl }: ThemeCardProps) {

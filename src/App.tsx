@@ -1,11 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Carousel } from './components/Carousel';
 import { SocialLinks } from './components/SocialLinks';
-import { GamingPage } from './pages/GamingPage';
 import { PhotoPage } from './pages/PhotoPage';
 import { CinemaPage } from './pages/CinemaPage';
 import { BlogPage } from './pages/BlogPage';
-import { ItPage } from './pages/ItPage';
 import { CvPage } from './pages/CvPage';
 
 function HomePage() {
@@ -39,9 +37,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/photo" element={<PhotoPage />} />
-        <Route path="/gaming" element={<GamingPage />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/it" element={<ItPage />} />
         <Route path="/cinema" element={<CinemaPage />} />
         <Route path="/cv" element={<CvPage />} />
       </Routes>
