@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Home, Building2, MapPin, Calendar, Briefcase, ChevronRight } from 'lucide-react';
+import { Home, Building2, MapPin, Calendar, Briefcase, ChevronRight, Download, Mail, Linkedin } from 'lucide-react';
 
 interface Experience {
   id: number;
@@ -39,8 +39,8 @@ const experiences: Experience[] = [
     description: [
       "Mettre à jour et optimiser régulièrement les pipelines GitLab CI, garantissant une intégration continue fluide et efficace des projets.",
       "Étudier, présenter et déployer un registre Harbor, facilitant le scan des vulnérabilités des images Docker, afin de renforcer la sécurité des systèmes.",
-      "Concevoir et développer un script bash innovant pour automatiser les modifications en masse dans le gestionnaire de mots de passe, optimisant ainsi l\'efficacité opérationnelle.",
-      "S\'intégrer au sein d'une équipe dédiée à l'industrialisation, en collaborant de manière proactive à plusieurs projets stratégiques au sein de l\' AGPM.",
+      "Concevoir et développer un script bash innovant pour automatiser les modifications en masse dans le gestionnaire de mots de passe, optimisant ainsi l'efficacité opérationnelle.",
+      "S'intégrer au sein d'une équipe dédiée à l'industrialisation, en collaborant de manière proactive à plusieurs projets stratégiques au sein de l' AGPM.",
     ]
   },
   {
@@ -52,7 +52,7 @@ const experiences: Experience[] = [
     endDate: "Octobre 2022",
     duration: "1,5 année",
     description: [
-      "Optimiser les pipelines de builds Jenkins en intégrant des étapes de scan d'image et de Dockerfile, en utilisant l\'outil Trivy.",
+      "Optimiser les pipelines de builds Jenkins en intégrant des étapes de scan d'image et de Dockerfile, en utilisant l'outil Trivy.",
       "Concevoir des pipelines Jenkins sur mesure pour satisfaire les exigences spécifiques des développeurs, améliorant ainsi l'efficacité du processus de développement.",
       "Implémenter des linter et des precommits pour garantir la qualité du code.",
       "Automatiser les processus de bootstrap EC2 sur AWS à l'aide d' Ansible et de Makefile.",
@@ -62,7 +62,7 @@ const experiences: Experience[] = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     title: "Développeur Fullstack",
     company: "Capgemini - Air Liquide",
     location: "Nantes",
@@ -70,7 +70,7 @@ const experiences: Experience[] = [
     endDate: "Juin 2021",
     duration: "2,5 années",
     description: [
-      "Optimiser les pipelines de builds Jenkins en intégrant des étapes de scan d'image et de Dockerfile, en utilisant l\'outil Trivy.",
+      "Optimiser les pipelines de builds Jenkins en intégrant des étapes de scan d'image et de Dockerfile, en utilisant l'outil Trivy.",
       "Concevoir des pipelines Jenkins sur mesure pour satisfaire les exigences spécifiques des développeurs, améliorant ainsi l'efficacité du processus de développement.",
       "Implémenter des linter et des precommits pour garantir la qualité du code.",
       "Automatiser les processus de bootstrap EC2 sur AWS à l'aide d' Ansible et de Makefile.",
@@ -166,9 +166,38 @@ export function CvPage() {
           <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 mb-6">
             Mon Parcours Professionnel
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
             Découvrez mon évolution et mes expériences en tant que <b>Consultant DevOps</b> et <b>Développeur Fullstack</b>
           </p>
+          
+          <div className="flex justify-center gap-4 mt-8">
+            <a
+              href="/CV-2025.pdf"
+              download
+              className="flex items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors duration-300 shadow-lg shadow-blue-500/20"
+            >
+              <Download className="w-5 h-5" />
+              <span>Télécharger CV</span>
+            </a>
+            
+            <a
+              href="mailto:vincent.jacquet78@gmail.com"
+              className="flex items-center gap-2 px-6 py-3 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 rounded-lg transition-colors duration-300 border border-blue-400/20"
+            >
+              <Mail className="w-5 h-5" />
+              <span>Me contacter</span>
+            </a>
+            
+            <a
+              href="https://www.linkedin.com/in/vincent-jacquet/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 rounded-lg transition-colors duration-300 border border-blue-400/20"
+            >
+              <Linkedin className="w-5 h-5" />
+              <span>LinkedIn</span>
+            </a>
+          </div>
         </header>
 
         <div className="relative pl-4">
