@@ -34,13 +34,3 @@ jobs:
         rm -rf docs/*
         mv dist/* docs/
 
-    # 6. Commit et push des changements dans la branche `new-version-website`
-    - name: Commit and push changes
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git add docs/
-        git commit -m "Deploy to GitHub Pages via GitHub Actions"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
