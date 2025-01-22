@@ -1,9 +1,9 @@
-import neige from '../data/photographies/Neige.jpg'
-import chien from '../data/photographies/Chien.jpg'
-import temple from '../data/photographies/Temple.jpg'
-import mer from '../data/photographies/Mer.jpg'
-import etoiles from '../data/photographies/Etoiles.jpg'
-import riviere from '../data/photographies/Riviere.jpg'
+import neige from '../data/photographies/Neige.webp'
+import chien from '../data/photographies/Chien.webp'
+import temple from '../data/photographies/Temple.webp'
+import mer from '../data/photographies/Mer.webp'
+import etoiles from '../data/photographies/Etoiles.webp'
+import riviere from '../data/photographies/Riviere.webp'
 
 export const photos = [
     {

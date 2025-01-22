@@ -155,7 +155,7 @@ export function CvPage() {
     <div className="min-h-screen bg-gradient-to-br from-[#0f172a] to-[#1e293b] py-16 px-4 sm:px-6">
       <Link 
         to="/" 
-        className="fixed top-6 left-6 bg-blue-500/10 p-3 rounded-full backdrop-blur-sm hover:bg-blue-500/20 transition-all duration-300 border border-blue-400/20 z-50 group"
+        className="fixed top-6 right-6 bg-blue-500/10 p-3 rounded-full backdrop-blur-sm hover:bg-blue-500/20 transition-all duration-300 border border-blue-400/20 z-50 group"
         aria-label="Retour à l'accueil"
       >
         <Home className="w-6 h-6 text-blue-400 group-hover:text-blue-300 transition-colors" />
