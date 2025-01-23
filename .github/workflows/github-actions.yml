@@ -24,11 +24,13 @@ jobs:
       run: npm install
 
     # 4. Build le projet
-    - name: Build project
+    - name: Debug secrets
+      run: |
+        echo "VITE_AIRTABLE_BASE_ID starts with: ${VITE_AIRTABLE_BASE_ID:0:5}"
+        echo "VITE_AIRTABLE_API_KEY starts with: ${VITE_AIRTABLE_API_KEY:0:5}"
       env:
         VITE_AIRTABLE_BASE_ID: ${{ secrets.VITE_AIRTABLE_BASE_ID }}
         VITE_AIRTABLE_API_KEY: ${{ secrets.VITE_AIRTABLE_API_KEY }}
-      run: npm run build
 
     # 5. Nettoyer le dossier /docs et déplacer le build dedans
     - name: Copy build to docs folder
