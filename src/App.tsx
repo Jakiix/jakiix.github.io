@@ -6,7 +6,6 @@ import { CinemaPage } from './pages/CinemaPage';
 import { BlogPage } from './pages/BlogPage';
 import { BlogArticlePage } from './pages/BlogArticlePage';
 import { CvPage } from './pages/CvPage';
-import { TestPage } from './pages/TestPage';
 
 function HomePage() {
   return (
@@ -43,7 +42,6 @@ export default function App() {
         <Route path="/blog/:slug" element={<BlogArticlePage />} />
         <Route path="/cinema" element={<CinemaPage />} />
         <Route path="/cv" element={<CvPage />} />
-        <Route path="/test" element={<TestPage />} />
       </Routes>
     </Router>
   );
