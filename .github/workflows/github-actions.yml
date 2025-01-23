@@ -44,6 +44,7 @@ jobs:
         rm -rf docs/*
         mv dist/* docs/
         cp CNAME docs/
+        cp 404.html docs/
 
     # 6. Commit et push les modifications dans /docs
     - name: Commit and push changes
