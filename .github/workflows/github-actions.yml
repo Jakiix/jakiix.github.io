@@ -3,14 +3,14 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - new-version-website  # Branche à surveiller pour le déploiement
+      - new-version-website  # Surveille les pushs sur la branche de déploiement
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Checkout le code
+    # 1. Checkout le code source
     - name: Checkout code
       uses: actions/checkout@v3
 
@@ -18,7 +18,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18  # Remplace par la version Node.js utilisée dans ton projet
+        node-version: 18  # Ajuste selon la version Node.js de ton projet
 
     # 3. Installer les dépendances
     - name: Install dependencies
@@ -28,9 +28,9 @@ jobs:
     - name: Build project
       run: npm run build
 
-    # 5. Nettoyer le dossier docs/ et déplacer le build
-    - name: Clean docs/ and move build
-      run: |
-        rm -rf docs/*
-        mv dist/* docs/
-
+    # 5. Déployer dans GitHub Pages à partir de ./dist
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist  # Répertoire généré par le build
