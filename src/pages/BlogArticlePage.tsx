@@ -26,7 +26,7 @@ export function BlogArticlePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="fixed top-4 left-4 z-50 flex gap-4">
+      <nav className="fixed top-4 right-4 z-50 flex gap-4">
         <Link 
           to="/" 
           className="bg-white/50 p-3 rounded-full backdrop-blur-sm hover:bg-white/70 transition-colors duration-300 shadow-lg"

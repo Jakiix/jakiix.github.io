@@ -18,9 +18,10 @@ const icons = {
 
 const routes = {
   'Gallerie photo': '/photo',
-  'Ciné': '/cinema',
-  '🚧 Blog 🚧': '/blog',
-  '🚧 Mon parcours 🚧': '/cv',
+  'Cinema': '/cinema',
+  'Blog': '/blog',
+  'Mon parcours': '/cv',
+  'Jeux': '/jeux'
 };
 
 export function ThemeCard({ theme, description, icon, imageUrl }: ThemeCardProps) {
