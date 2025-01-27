@@ -135,9 +135,7 @@ return (
   </Link>
   
   <div className="max-w-7xl mx-auto">
-  <h1 className="text-4xl font-bold text-white mb-12 text-center">
-  Critiques de Films
-  </h1>
+  <h1 className="text-4xl font-bold text-white mb-12 text-center">Critiques de Films</h1>
   
   {loading && (
     <div className="flex justify-center items-center min-h-[200px]">
@@ -160,9 +158,7 @@ return (
   )}
   
   {!loading && !error && reviews.length === 0 && (
-    <div className="text-center text-gray-400 mt-8">
-    Aucune critique de film trouvée
-    </div>
+    <div className="text-center text-gray-400 mt-8">Aucune critique de film trouvée</div>
   )}
   </div>
   </div>

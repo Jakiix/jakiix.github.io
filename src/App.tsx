@@ -44,7 +44,7 @@ function HomePage() {
             Vincent JACQUET
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
-          Bienvenue sur mon site, mon portfolio, ou mon blog… appelez-le comme vous voulez, après tout, les étiquettes, c’est surfait. J’avais juste envie d’un espace à moi pour rassembler tout ce qui me plaît. <s>Et me donner l’illusion que ça intéresse quelqu’un.</s> 🙄
+          Bienvenue sur mon site, mon portfolio, ou mon blog… appelez-le comme vous voulez, après tout, les étiquettes, c’est surfait. J’avais juste envie d’un espace à moi pour rassembler tout ce qui me plaît.
           </p>
           <button
             onClick={() => {
