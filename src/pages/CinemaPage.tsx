@@ -35,7 +35,6 @@ function StarRating({ rating }: { rating: number }) {
       }`}
       />
     ))}
-    <span className="ml-2 text-blue-400">{rating}</span>
     </div>
   );
 }

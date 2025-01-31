@@ -1,28 +1,85 @@
 import { Home, Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { blogPosts } from '../data/blog';
+import { useEffect, useState } from 'react';
+import { BlogPost } from '../types';
+import { ContentRenderer } from '../components/blog/ContentRenderer';
 
 export function BlogArticlePage() {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const post = blogPosts.find(post => post.slug === slug);
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  if (!post) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Article introuvable</h1>
-          <Link 
-            to="/blog" 
-            className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Retour aux articles
-          </Link>
-        </div>
+  useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const baseId = import.meta.env.VITE_AIRTABLE_BASE_ID;
+        const apiKey = import.meta.env.VITE_AIRTABLE_API_KEY;
+        
+        const response = await fetch(
+          `https://api.airtable.com/v0/${baseId}/Table%203?filterByFormula={slug}='${slug}'`, 
+          { 
+            headers: {
+              'Authorization': `Bearer ${apiKey}`,
+              'Content-Type': 'application/json',
+            }
+          })
+
+        if (!response.ok) throw new Error('Erreur de réseau');
+
+        const data = await response.json();
+
+        if (!data?.records?.length) throw new Error('Article non trouvé');
+        const record = data.records[0];
+        
+        // Gestion sécurisée du contenu
+        let contenu = [];
+        try {
+          contenu = record.fields.contenu ? JSON.parse(record.fields.contenu) : [];
+        } catch (e) {
+          console.error('Erreur de parsing du contenu:', e);
+        }
+
+        setPost({
+          id: record.id,
+          slug: record.fields.slug,
+          titre: record.fields.titre,
+          date: record.fields.date,
+          categorie: record.fields.categorie,
+          tempsLecture: record.fields.tempsLecture,
+          extrait: record.fields.extrait,
+          banniere: record.fields.banniere || [],
+          contenu: contenu
+        });
+
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Erreur inconnue');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPost();
+  }, [slug]);
+
+  if (loading) return <div className="text-center py-12">Chargement...</div>;
+  if (error) return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">{error}</h1>
+        <Link 
+          to="/blog" 
+          className="text-blue-600 hover:text-blue-700 font-medium inline-flex items-center"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Retour aux articles
+        </Link>
       </div>
-    );
-  }
+    </div>
+  );
+
+  if (!post) return null;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -45,55 +102,41 @@ export function BlogArticlePage() {
 
       <article className="max-w-4xl mx-auto px-4 py-16">
         <header className="mb-12">
-          <div className="mb-6">
-            <img
-              src={post.imageUrl}
-              alt={post.title}
-              className="w-full h-[400px] object-cover rounded-2xl shadow-xl"
-            />
-          </div>
+          {post.banniere?.[0]?.url && (
+            <div className="mb-6">
+              <img
+                src={post.banniere[0].url}
+                alt={post.titre}
+                className="w-full h-[400px] object-cover rounded-2xl shadow-xl"
+              />
+            </div>
+          )}
           
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <span className="text-sm text-blue-600 font-medium px-3 py-1 bg-blue-50 rounded-full">
-              {post.category}
+              {post.categorie}
             </span>
             <div className="flex items-center gap-2 text-gray-500">
               <Calendar className="w-4 h-4" />
-              <span>{post.date}</span>
+              <span>
+                {new Date(post.date).toLocaleDateString('fr-FR', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </span>
             </div>
             <div className="flex items-center gap-2 text-gray-500">
               <Clock className="w-4 h-4" />
-              <span>{post.readTime}</span>
+              <span>{post.tempsLecture} min</span>
             </div>
           </div>
           
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            {post.title}
+            {post.titre}
           </h1>
         </header>
-
-        <div className="prose prose-lg max-w-none">
-          {post.content.map((section, index) => (
-            <div key={index} className="mb-8">
-              {section.type === 'paragraph' && (
-                <p className="text-gray-700 leading-relaxed">{section.content}</p>
-              )}
-              {section.type === 'heading' && (
-                <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-6">{section.content}</h2>
-              )}
-              {section.type === 'image' && (
-                <figure className="my-8">
-                  <img
-                    src={section.url}
-                    alt={section.caption}
-                    className="w-full rounded-xl shadow-lg"
-                  />
-                  <figcaption className="text-center text-gray-500 mt-4">{section.caption}</figcaption>
-                </figure>
-              )}
-            </div>
-          ))}
-        </div>
+        <ContentRenderer content={post.contenu} />
       </article>
     </div>
   );

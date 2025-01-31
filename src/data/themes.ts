@@ -19,7 +19,7 @@ export const themes: Theme[] = [
   },
   {
     theme: 'Blog',
-    description: '(🚧 WIP 🚧) Une sélection de quelques articles rédigés par mes soins (logique, c\'est mon site) !',
+    description: 'Une sélection de quelques articles rédigés par mes soins (logique, c\'est mon site) !',
     icon: Newspaper,
     imageUrl: 'https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=3473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
