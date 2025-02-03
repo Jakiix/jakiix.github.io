@@ -12,7 +12,7 @@ export function PhotoPage() {
             >
                 <Home className="w-6 h-6 text-gray-800" />
             </Link>
-            <h1 className="text-4xl font-bold text-center mb-12">Gallerie Photos</h1>
+            <h1 className="text-4xl font-bold text-center mb-12">Gallerie photos</h1>
             <PhotoGallery />
         </div>
     );

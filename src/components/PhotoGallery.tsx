@@ -133,12 +133,12 @@ export function PhotoGallery() {
 return (
   <div className="container mx-auto">
   {/* Grid principale */}
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   {loading && (
     <div className="flex justify-center items-center min-h-[200px]">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-      </div>
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+    </div>
   )}
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
   
   {error && (
     <div className="bg-red-300 border border-red-500 rounded-lg p-4 mb-6 ">
