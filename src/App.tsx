@@ -12,6 +12,8 @@ import { useNavigate } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import moi from './data/photographies/moi.webp';
 import { ScrollToTop } from './components/ScrollToTop';
+import { WordlePage } from './pages/WordlePage';
+import MariagePage from './pages/MariagePage';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -133,8 +135,12 @@ export default function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogArticlePage />} />
         <Route path="/critique-ciné" element={<CinemaPage />} />
+        {/* <Route path="/boarding" element={<BoardingPage />} />
+        <Route path="/gaming" element={<GamingPage />} /> */}
         <Route path="/mon-parcours" element={<CvPage />} />
-        <Route path="/jeux" element={<JeuxPage />} />
+        <Route path="/mes-jeux" element={<JeuxPage />} />
+        <Route path="/jeux/wordle" element={<WordlePage />} />
+        <Route path="/mariage" element={<MariagePage />} />
       </Routes>
     </Router>
   );

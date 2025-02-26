@@ -31,3 +31,14 @@ export type AirtableResponse<T> = {
         fields: T;
     }[];
 };
+
+export type Character = {
+    name: string;
+    alignment: string;
+    fighter: string;
+    hair_color: string;
+    gender: string;
+    race: string;
+    deaths: number;
+    can_transform: string;
+};

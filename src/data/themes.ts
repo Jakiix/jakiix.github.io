@@ -1,4 +1,4 @@
-import { Camera, Gamepad, Newspaper, Film, Milestone } from 'lucide-react';
+import { Camera, Gamepad, Newspaper, Film, Milestone, Dices, Gamepad2 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import gaming from '../data/photographies/gaming.webp';
 import cinema from '../data/photographies/cinema.webp';
@@ -24,21 +24,33 @@ export const themes: Theme[] = [
     imageUrl: 'https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?q=80&w=3473&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
-    theme: 'Critique ciné',
-    description: 'Mes critiques. Attention ça va saigner !',
-    icon: Film,
-    imageUrl: cinema,
-  },
-  {
     theme: 'Mon parcours',
     description: 'Découvrez mon parcours professionnel et mes réseaux',
     icon: Milestone,
     imageUrl: 'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=3542&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
-    theme: 'Jeux',
-    description: '(🚧 WIP 🚧) Des jeux que j\'ai fait, c\'est marrant viens essayer',
-    icon: Gamepad,
-    imageUrl: gaming,
+    theme: 'Critique ciné',
+    description: 'Mes critiques. Attention ça va saigner !',
+    icon: Film,
+    imageUrl: cinema,
   },
+  // {
+  //   theme: 'Critiques gaming',
+  //   description: '(🚧 WIP 🚧) Mes critiques concernant les jeux-vidéos.',
+  //   icon: Gamepad,
+  //   imageUrl: gaming,
+  // },
+  // {
+  //   theme: 'Jeux de société',
+  //   description: '(🚧 WIP 🚧) Venez découvrir des jeux de société.',
+  //   icon: Dices,
+  //   imageUrl: 'https://images.unsplash.com/photo-1582921017967-79d1cb6702ee?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  // },
+  // {
+  //   theme: 'Mes jeux',
+  //   description: '(🚧 WIP 🚧) Des jeux que j\'ai fait, c\'est marrant viens essayer',
+  //   icon: Gamepad2,
+  //   imageUrl: gaming,
+  // }
 ] as const;
