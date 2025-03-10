@@ -134,7 +134,7 @@ export default function App() {
         <Route path="/gallerie-photo" element={<PhotoPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogArticlePage />} />
-        <Route path="/critique-ciné" element={<CinemaPage />} />
+        <Route path="/critique-médias" element={<CinemaPage />} />
         {/* <Route path="/boarding" element={<BoardingPage />} />
         <Route path="/gaming" element={<GamingPage />} /> */}
         <Route path="/mon-parcours" element={<CvPage />} />

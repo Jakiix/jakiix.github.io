@@ -13,6 +13,8 @@ interface MovieReview {
   };
 }
 
+type Category = 'film-serie' | 'anime' | 'jeu-video';
+
 function formatDate(dateStr: string): string {
   const date = new Date(dateStr);
   return date.toLocaleDateString('fr-FR', {
@@ -85,81 +87,121 @@ function MovieCard({ review }: { review: MovieReview }) {
   );
 }
 
+// Mapping des catégories vers les tables Airtable
+const categoryToTable: Record<Category, string> = {
+  'film-serie': 'Table%201',
+  'anime': 'Table%204',
+  'jeu-video': 'Table%205'
+};
+
+// Mapping des catégories vers les noms d'affichage
+const categoryLabels: Record<Category, string> = {
+  'film-serie': 'Films & Séries',
+  'anime': 'Anime',
+  'jeu-video': 'Jeux Vidéo'
+};
+
 export function CinemaPage() {
   const [reviews, setReviews] = useState<MovieReview[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<Category>('film-serie');
   
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
+      setError(null);
+      
       try {
         const baseId = import.meta.env.VITE_AIRTABLE_BASE_ID;
         const apiKey = import.meta.env.VITE_AIRTABLE_API_KEY;
+        const tableId = categoryToTable[activeCategory];
         
-        const response = await fetch(`https://api.airtable.com/v0/${baseId}/Table%201`, {
-        headers: {
-          'Authorization': `Bearer ${apiKey}`,
-          'Content-Type': 'application/json',
-        },
-      });
-      
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const response = await fetch(`https://api.airtable.com/v0/${baseId}/${tableId}`, {
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json',
+          },
+        });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        const sortedReviews = data.records.sort((a: MovieReview, b: MovieReview) => 
+          new Date(b.fields.date).getTime() - new Date(a.fields.date).getTime()
+        );
+        setReviews(sortedReviews);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Une erreur est survenue');
+      } finally {
+        setLoading(false);
       }
+    };
+
+    fetchData();
+  }, [activeCategory]);
+
+  return (
+    <div className="min-h-screen bg-gray-900 py-12 px-6">
+      <Link 
+        to="/" 
+        className="fixed top-6 right-6 bg-white/50 p-3 rounded-full backdrop-blur-sm hover:bg-white/70 
+        transition-all duration-300 shadow-lg hover:scale-110"
+        aria-label="Retour à l'accueil"
+      >
+        <Home className="w-6 h-6 text-gray-800" />
+      </Link>
       
-      const data = await response.json();
-      const sortedReviews = data.records.sort((a: MovieReview, b: MovieReview) => 
-        new Date(b.fields.date).getTime() - new Date(a.fields.date).getTime()
-    );
-    setReviews(sortedReviews);
-  } catch (err) {
-    setError(err instanceof Error ? err.message : 'Une erreur est survenue');
-  } finally {
-    setLoading(false);
-  }
-};
-
-fetchData();
-}, []);
-
-return (
-  <div className="min-h-screen bg-gray-900 py-12 px-6">
-  <Link 
-  to="/" 
-  className="fixed top-6 right-6 bg-white/50 p-3 rounded-full backdrop-blur-sm hover:bg-white/70 
-  transition-all duration-300 shadow-lg hover:scale-110"
-  aria-label="Retour à l'accueil"
-  >
-  <Home className="w-6 h-6 text-gray-800" />
-  </Link>
-  
-  <div className="max-w-7xl mx-auto">
-  <h1 className="text-4xl font-bold text-white mb-12 text-center">Critiques ciné</h1>
-  
-  {loading && (
-    <div className="flex justify-center items-center min-h-[200px]">
-    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-white mb-8 text-center">Critiques médias</h1>
+        
+        {/* Boutons de catégorie */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-gray-800/50 p-2 rounded-lg inline-flex gap-4">
+            {(Object.keys(categoryLabels) as Category[]).map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-8 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  activeCategory === category
+                    ? 'bg-blue-600 text-white shadow-lg transform scale-105'
+                    : 'text-gray-300 hover:text-white hover:bg-gray-700/50'
+                }`}
+              >
+                {categoryLabels[category]}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        {loading && (
+          <div className="flex justify-center items-center min-h-[200px]">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+          </div>
+        )}
+        
+        {error && (
+          <div className="bg-red-900/50 border border-red-500 rounded-lg p-4 mb-6">
+            <p className="text-red-200">{error}</p>
+          </div>
+        )}
+        
+        {!loading && !error && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {reviews.map((review) => (
+              <MovieCard key={review.id} review={review} />
+            ))}
+          </div>
+        )}
+        
+        {!loading && !error && reviews.length === 0 && (
+          <div className="text-center text-gray-400 mt-8">
+            Aucune critique trouvée pour cette catégorie
+          </div>
+        )}
+      </div>
     </div>
-  )}
-  
-  {error && (
-    <div className="bg-red-900/50 border border-red-500 rounded-lg p-4 mb-6">
-    <p className="text-red-200">{error}</p>
-    </div>
-  )}
-  
-  {!loading && !error && (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {reviews.map((review) => (
-      <MovieCard key={review.id} review={review} />
-    ))}
-    </div>
-  )}
-  
-  {!loading && !error && reviews.length === 0 && (
-    <div className="text-center text-gray-400 mt-8">Aucune critique de film trouvée</div>
-  )}
-  </div>
-  </div>
-);
+  );
 }
