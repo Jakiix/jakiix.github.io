@@ -89,9 +89,9 @@ function MovieCard({ review }: { review: MovieReview }) {
 
 // Mapping des catégories vers les tables Airtable
 const categoryToTable: Record<Category, string> = {
-  'film-serie': 'Table%201',
-  'anime': 'Table%204',
-  'jeu-video': 'Table%205'
+  'film-serie': 'Film_et_serie',
+  'anime': 'Anime',
+  'jeu-video': 'Gaming'
 };
 
 // Mapping des catégories vers les noms d'affichage

@@ -15,7 +15,7 @@ export function BlogPage() {
         const baseId = import.meta.env.VITE_AIRTABLE_BASE_ID;
         const apiKey = import.meta.env.VITE_AIRTABLE_API_KEY;
         
-        const response = await fetch(`https://api.airtable.com/v0/${baseId}/Table%203`, {
+        const response = await fetch(`https://api.airtable.com/v0/${baseId}/Articles`, {
           headers: { 
             'Authorization': `Bearer ${apiKey}`,
             'Content-Type': 'application/json',

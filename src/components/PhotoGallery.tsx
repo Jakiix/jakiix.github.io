@@ -106,7 +106,7 @@ export function PhotoGallery() {
         const baseId = import.meta.env.VITE_AIRTABLE_BASE_ID;
         const apiKey = import.meta.env.VITE_AIRTABLE_API_KEY;
         
-        const response = await fetch(`https://api.airtable.com/v0/${baseId}/Table%202`, {
+        const response = await fetch(`https://api.airtable.com/v0/${baseId}/Photos`, {
         headers: {
           'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json',
