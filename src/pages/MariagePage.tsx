@@ -1,10 +1,17 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Camera, Heart, Upload, ChevronDown, X } from 'lucide-react';
+import { createClient } from '@supabase/supabase-js';
 
 interface SelectedPhoto {
     file: File;
     preview: string;
 }
+
+// Configuration Supabase
+const supabase = createClient(
+    import.meta.env.VITE_SUPABASE_URL,
+    import.meta.env.VITE_SUPABASE_ANON_KEY
+);
 
 function MariagePage() {
     const [photos, setPhotos] = useState<string[]>([]);
@@ -33,14 +40,23 @@ function MariagePage() {
 
     const fetchPhotos = async () => {
         try {
-            const response = await fetch("http://192.168.1.122:3001/photos");
-            const data = await response.json();
-        
-            if (data.photos && Array.isArray(data.photos)) {
-                setPhotos(data.photos);
-            } else {
-            setPhotos([]);
-            }
+            const { data, error } = await supabase.storage
+                .from('mariage-photos')
+                .list('');
+
+
+            console.log('data:', data);
+            console.log('error:', error);
+
+
+            if (error) throw error;
+            
+            const publicUrls = data.map(file => 
+                `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/mariage-photos/${file.name.replace(/^\/+/, '')}`
+            );
+            
+            console.log('Photos récupérées :', publicUrls);
+            setPhotos(publicUrls);
         } catch (error) {
             console.error("Erreur lors de la récupération des photos", error);
         }
@@ -63,31 +79,29 @@ function MariagePage() {
         if (selectedPhotos.length === 0) return;
 
         setIsUploading(true);
-        const formData = new FormData();
-        selectedPhotos.forEach(photo => {
-        formData.append(`file`, photo.file);
-        });
-
+        
         try {
-        const response = await fetch('http://192.168.1.122:3001/upload', {
-            method: 'POST',
-            body: formData,
-        })
-        if (!response.ok) {
-            const errorText = await response.text(); // Récupère la réponse même si ce n'est pas du JSON
-            throw new Error(`Erreur serveur: ${errorText}`);
-        }
+            await Promise.all(
+                selectedPhotos.map(async (photo, index) => {
+                    const fileName = `photo_${crypto.randomUUID()}`;
+                    console.log(fileName);
+                    //const fileName = `photo_${Date.now()}.jpg`;
+                    const { error } = await supabase.storage
+                        .from('mariage-photos')
+                        .upload(fileName, photo.file);
 
-        const data = await response.json().catch(() => null); // Parse en JSON si possible
-        console.log("Réponse du serveur :", data || "Réponse non JSON");
+                    if (error) throw error;
+                })
+            );
 
-        // Clean up URLs and reset the form after successful upload
-        selectedPhotos.forEach(photo => URL.revokeObjectURL(photo.preview));
-        setSelectedPhotos([]);
-        alert('Photos envoyées avec succès !');
+            // Nettoyage après succès
+            selectedPhotos.forEach(photo => URL.revokeObjectURL(photo.preview));
+            setSelectedPhotos([]);
+            await fetchPhotos(); // Rafraîchit la galerie
+            alert('Photos envoyées avec succès ! 🎉');
         } catch (error) {
-            console.error('Error uploading images:', error);
-            alert('Erreur lors de l\'envoi des photos. Veuillez réessayer.');
+            console.error('Erreur upload:', error);
+            alert('Erreur : certaines photos ne sont pas envoyées 📵');
         } finally {
             setIsUploading(false);
         }
@@ -130,8 +144,8 @@ function MariagePage() {
                 accept="image/*"
                 multiple
                 className="hidden"
-                capture="environment"
             />
+
 
             {selectedPhotos.length > 0 ? (
                 <div className="space-y-4">
@@ -191,8 +205,9 @@ function MariagePage() {
             </div>
 
             {/* Gallery Toggle Button */}
-            <button
+            {/* <button
                 onClick={() => {
+                    console.log("Clic bouton galerie", showGallery);
                     if (!showGallery) fetchPhotos(); // Charge les photos uniquement si la galerie est fermée
                     setShowGallery(!showGallery);
                 }}
@@ -200,27 +215,27 @@ function MariagePage() {
             >
                 <span className="font-medium">Voir les photos du jour</span>
                 <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${showGallery ? 'rotate-180' : ''}`} />
-            </button>
+            </button> */}
 
             {/* Photo Gallery */}
             {showGallery && (
             <div className="w-full max-w-6xl mb-12">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {photos.map((photo, index) => (
-                    <div 
-                    key={index}
-                    className="aspect-square overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border border-emerald-500/30 bg-emerald-700/40 hover:scale-[1.02]"
-                    >
-                    <img
-                        src={`http://192.168.1.122:3001${photo}`}
-                        alt={`Photo ${index + 1}`}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
-                    />
-                    </div>
-                ))}
+                    {photos.map((photoUrl, index) => (
+                        <div 
+                            key={index}
+                            className="aspect-square overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border border-emerald-500/30 bg-emerald-700/40 hover:scale-[1.02]"
+                        >
+                            <img
+                                src={photoUrl}
+                                alt={`Photo ${index + 1}`}
+                                className="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
-            )}
+        )}
         </div>
         </div>
     );
