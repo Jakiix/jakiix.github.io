@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Camera, Heart, Upload, ChevronDown, X } from 'lucide-react';
+import { Camera, Heart, Upload, X, User } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 
 interface SelectedPhoto {
@@ -17,6 +17,7 @@ function MariagePage() {
     const [photos, setPhotos] = useState<string[]>([]);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [selectedPhotos, setSelectedPhotos] = useState<SelectedPhoto[]>([]);
+    const [senderName, setSenderName] = useState('');
     const [showGallery, setShowGallery] = useState(false);
     const [isUploading, setIsUploading] = useState(false);
 
@@ -76,32 +77,35 @@ function MariagePage() {
     };
 
     const handleSubmit = async () => {
-        if (selectedPhotos.length === 0) return;
-
+        if (selectedPhotos.length === 0 || !senderName.trim()) {
+            alert("Veuillez entrer votre nom avant l'envoi.");
+            return;
+        }
+    
         setIsUploading(true);
         
         try {
             await Promise.all(
-                selectedPhotos.map(async (photo, index) => {
-                    const fileName = `photo_${crypto.randomUUID()}`;
+                selectedPhotos.map(async (photo) => {
+                    const safeName = senderName.trim().replace(/\s+/g, '_').replace(/[^\w-]/g, '');
+                    const fileName = `${safeName}_${crypto.randomUUID()}`;
                     console.log(fileName);
-                    //const fileName = `photo_${Date.now()}.jpg`;
+    
                     const { error } = await supabase.storage
                         .from('mariage-photos')
                         .upload(fileName, photo.file);
-
+    
                     if (error) throw error;
                 })
             );
-
-            // Nettoyage après succès
+    
             selectedPhotos.forEach(photo => URL.revokeObjectURL(photo.preview));
             setSelectedPhotos([]);
-            await fetchPhotos(); // Rafraîchit la galerie
+            await fetchPhotos();
             alert('Photos envoyées avec succès ! 🎉');
         } catch (error) {
             console.error('Erreur upload:', error);
-            alert('Erreur : certaines photos ne sont pas envoyées 📵');
+            alert('Erreur : certaines photos n\'ont pas été envoyées 📵');
         } finally {
             setIsUploading(false);
         }
@@ -117,7 +121,7 @@ function MariagePage() {
         style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80")',
             backgroundColor: 'rgba(20, 83, 45, 0.5)',
-            backgroundBlend: 'overlay'
+            backgroundBlendMode: 'overlay'
         }}
         >
         <div className="min-h-screen bg-emerald-800/40 backdrop-blur-sm flex flex-col items-center justify-start pt-12 px-4">
@@ -146,6 +150,22 @@ function MariagePage() {
                 className="hidden"
             />
 
+            {/* Name Input */}
+            <div className="mb-6">
+                <label htmlFor="senderName" className="block text-sm font-medium text-orange-100 mb-2">
+                    Votre nom
+                </label>
+                <div className="relative">
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-orange-200" />
+                    <input
+                        type="text"
+                        id="senderName"
+                        value={senderName}
+                        onChange={(e) => setSenderName(e.target.value)}
+                        placeholder="Entrez votre nom"
+                        className="w-full pl-10 mb-4 pr-4 py-3 bg-emerald-600/40 border border-emerald-500/30 rounded-lg text-orange-50 placeholder-orange-200/70 focus:outline-none focus:ring-2 focus:ring-orange-300/50 focus:border-orange-300/50 transition-all duration-200"
+                    />
+                </div>
 
             {selectedPhotos.length > 0 ? (
                 <div className="space-y-4">
@@ -177,12 +197,11 @@ function MariagePage() {
                     </button>
                     )}
                     <button
-                    onClick={handleSubmit}
-                    disabled={isUploading}
-                    className="w-full py-3 px-4 bg-custom-terra hover:bg-custom-terra/90 text-orange-50 rounded-lg transition duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                    <Heart className="w-5 h-5" />
-                    {isUploading ? 'Envoi en cours...' : `Envoyer ${selectedPhotos.length} photo${selectedPhotos.length > 1 ? 's' : ''} pour les mariés`}
+                        onClick={handleSubmit}
+                        disabled={isUploading}
+                        className="w-full py-3 px-4 bg-custom-terra hover:bg-custom-terra/90 text-orange-50 rounded-lg transition duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"                    >
+                        <Heart className="w-5 h-5" />
+                        {isUploading ? 'Envoi en cours...' : `Cliquer ici pour envoyer ${selectedPhotos.length} photo${selectedPhotos.length > 1 ? 's' : ''} aux mariés`}
                     </button>
                 </div>
                 </div>
@@ -204,19 +223,6 @@ function MariagePage() {
             )}
             </div>
 
-            {/* Gallery Toggle Button */}
-            {/* <button
-                onClick={() => {
-                    console.log("Clic bouton galerie", showGallery);
-                    if (!showGallery) fetchPhotos(); // Charge les photos uniquement si la galerie est fermée
-                    setShowGallery(!showGallery);
-                }}
-                className="group mb-8 flex items-center gap-2 px-7 py-3.5 bg-custom-terra hover:bg-custom-terra/90 text-orange-50 rounded-full transition duration-200 shadow-lg hover:shadow-xl border border-orange-400/30"
-            >
-                <span className="font-medium">Voir les photos du jour</span>
-                <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${showGallery ? 'rotate-180' : ''}`} />
-            </button> */}
-
             {/* Photo Gallery */}
             {showGallery && (
             <div className="w-full max-w-6xl mb-12">
@@ -237,7 +243,7 @@ function MariagePage() {
             </div>
         )}
         </div>
-        </div>
+        </div></div>
     );
 }
 

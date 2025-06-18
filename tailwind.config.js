@@ -6,6 +6,11 @@ export default {
       backgroundImage: {
         'custom-radial': 'radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,92,1) 81%)',
       },
+      colors: {
+        custom: {
+          terra: '#D96E4E',
+        },
+      },
     },
   },
   plugins: [],
